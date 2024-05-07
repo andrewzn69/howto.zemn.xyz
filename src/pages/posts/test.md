@@ -1,21 +1,19 @@
 ---
-description: test
+description:
 public: true
 layout: ../../layouts/BlogPost.astro
-title: Test
+title: How to clear Docker cache and free up space on your system
 createdAt: 1663138523826
 updatedAt: 1683767730186
 tags:
-
 - docker
 - linux
-heroImage: /posts/test.jpg
-slug: test
+heroImage: /posts/docker.jpg
+slug: cleaning-up-docker 
 ---
 
-# How to clear Docker cache and free up space on your system
 
-### How much disk space is Docker using?
+How much disk space is Docker using?
 
 ```bash
 docker system df

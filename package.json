@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-		"live-import": "node --experimental-vm-modules tools/import.mjs"
+    "live-import": "node --experimental-vm-modules tools/import.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",

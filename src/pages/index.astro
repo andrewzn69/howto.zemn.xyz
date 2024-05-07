@@ -46,7 +46,7 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
 						ex non excepteur duis sunt velit enim. Voluptate laboris sint
 						cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
 						<a
-							class="inline-flex items-center gap-1 indent-1 text-orange-500"
+							class="inline-flex items-center gap-1 indent-1 text-orange"
 							href={HOMEPAGE_URL}
 							>Learn more about me <IoArrowForward className="inline" />
 						</a>
@@ -64,7 +64,7 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
 									<li class="text-center mb-4">
 										<a href={post.url}>
 											<Image
-												class="border border-slate-300 dark:border-zinc-700 rounded-xl"
+												class="border border-border rounded-xl"
 												src={heroImageSrc}
 												width={720}
 												height={720 / 1.777}
