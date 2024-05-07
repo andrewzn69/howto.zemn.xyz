@@ -15,7 +15,7 @@ export default defineConfig({
       //   dark: 'nord'
       // },
       langs: [],
-      wrap: true,
+      wrap: false,
       transformers: []
     }
   },
