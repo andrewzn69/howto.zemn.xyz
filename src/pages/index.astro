@@ -9,17 +9,16 @@ import Content from '../components/Content.astro'
 import { IoArrowForward } from 'react-icons/io5'
 import Masthead from '../components/Masthead.astro'
 import { Image } from 'astro:assets'
-import CreatedWithSection from '../components/CreatedWithSection.astro'
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-	'/src/assets/images/*.{jpeg,jpg,png,gif}'
+	'/src/assets/*.{jpeg,jpg,png,gif}'
 )
 console.log('images:', images)
 
 const posts = (await Astro.glob('./posts/*.md')).sort(
 	(a: any, b: any) =>
 		new Date(b.frontmatter.createdAt).valueOf() -
-		new Date(b.frontmatter.createdAt).valueOf()
+		new Date(a.frontmatter.createdAt).valueOf()
 )
 ---
 
@@ -35,11 +34,19 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
 			<Content>
 				<section>
 					<p class="mb-8 indent-4">
-						Welcome to my blog! I'm a software engineer and I write about
-						programming, technology, and other things that interest me. I hope
-						you find something useful here.
+						Lorem ipsum dolor sit amet, officia excepteur ex fugiat
+						reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit
+						ex esse exercitation amet. Nisi anim cupidatat excepteur officia.
+						Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
+						voluptate dolor minim nulla est proident. Nostrud officia pariatur
+						ut officia. Sit irure elit esse ea nulla sunt ex occaecat
+						reprehenderit commodo officia dolor Lorem duis laboris cupidatat
+						officia voluptate. Culpa proident adipisicing id nulla nisi laboris
+						ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo
+						ex non excepteur duis sunt velit enim. Voluptate laboris sint
+						cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
 						<a
-							class="inline-flex items-center gap-1 indent01 text-orange-500"
+							class="inline-flex items-center gap-1 indent-1 text-orange-500"
 							href={HOMEPAGE_URL}
 							>Learn more about me <IoArrowForward className="inline" />
 						</a>
@@ -78,7 +85,6 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
 						}
 					</ul>
 				</section>
-				<CreatedWithSection />
 			</Content>
 		</main>
 		<Footer />
