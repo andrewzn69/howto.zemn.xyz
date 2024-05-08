@@ -24,7 +24,7 @@ export default defineConfig({
   image: {
     service: sharpImageService()
   },
-  output: "server",
+  output: "hybrid",
   adapter: vercel({
     webAnalytics: { enabled: true }
   }),
