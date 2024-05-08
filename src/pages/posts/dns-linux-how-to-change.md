@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: How to change DNS on Linux
 createdAt: 26/4/2024

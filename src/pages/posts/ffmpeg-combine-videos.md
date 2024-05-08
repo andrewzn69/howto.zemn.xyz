@@ -1,5 +1,6 @@
 ---
-description: 
+description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: How to combine videos with FFmpeg
 createdAt: 13/11/2023

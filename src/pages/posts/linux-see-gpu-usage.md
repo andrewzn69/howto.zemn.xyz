@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: How to see GPU usage on Linux
 createdAt: 15/12/2023

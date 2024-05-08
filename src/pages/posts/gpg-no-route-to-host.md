@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: 'How to fix gpg: keyserver receive failed: No route to host'
 createdAt: 13/12/2023

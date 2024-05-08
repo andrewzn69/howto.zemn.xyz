@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: How to scan for open port with nmap
 createdAt: 06/12/2024

@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: How to see keypress codes in Linux
 createdAt: 14/12/2023

@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: 'How to fix qt.qpa.plugin: Could not find the Qt platform plugin "wayland"'
 createdAt: 27/04/2024
@@ -11,7 +12,6 @@ tags:
 heroImage: /posts/
 slug: qt-could-not-find-platform-plugin
 ---
-
 
 ```bash
 qt.qpa.plugin: Could not find the Qt platform plugin "wayland" in ""

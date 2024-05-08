@@ -1,5 +1,6 @@
 ---
 description:
+public: true
 layout: ../../layouts/BlogPost.astro
 title: How to scan for viruses on Linux
 createdAt: 12/12/2023
