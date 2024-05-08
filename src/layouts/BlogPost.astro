@@ -18,43 +18,38 @@ export interface Props {
 }
 
 const {
-	content: { title, description, heroImage }
+	content: { title, description, tags }
 } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead
-			title={title + ` / ${SITE_TITLE}`}
-			description={description}
-			image={heroImage}
-		/>
+		<BaseHead title={title + ` / ${SITE_TITLE}`} description={description} />
 	</head>
 
 	<Body>
 		<Header />
-		<main class="pt-[56px]">
+		<main class="pt-[70px]">
 			<Content className="pt-6 markdown-body">
-				<div class="mb-8">
-					{
-						heroImage && (
-							<img
-								class="border border-border rounded-xl"
-								width={720}
-								height={360}
-								src={heroImage}
-								alt=""
-							/>
-						)
-					}
-				</div>
 				<h1 class="text-3xl my-1 font-mplus">{title}</h1>
 				<div>{description}</div>
+				<div>
+					{
+						tags.map(tag => (
+							<a
+								href={`/categories/${tag}`}
+								class="inline-flex justify-center text-sm font-medium shadow-sm hover:bg-orange-light dark:hover:bg-background-main focus:outline-none !no-underline transition-all rounded-md border border-border px-2 py-1 mt-2 mr-2 !text-foreground-context hover:dark:!text-foreground"
+							>
+								#{tag}
+							</a>
+						))
+					}
+				</div>
 				<hr class="border-top border-border my-4" />
 				<slot />
 			</Content>
 		</main>
-		<Footer />
 	</Body>
+	<Footer />
 </html>
