@@ -1,14 +1,11 @@
-import { defineConfig, sharpImageService } from 'astro/config'
-import sitemap from '@astrojs/sitemap'
-import react from '@astrojs/react'
-import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
+import { defineConfig, sharpImageService } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+import vercel from "@astrojs/vercel/serverless";
 
+// https://astro.build/config
 export default defineConfig({
-	output: 'server',
-	adapter: vercel({
-		webAnalytics: { enabled: true }
-	}),
   site: 'https://howto.zemn.xyz/',
   integrations: [sitemap(), react(), tailwind()],
   markdown: {
@@ -26,5 +23,9 @@ export default defineConfig({
   },
   image: {
     service: sharpImageService()
-  }
-})
+  },
+  output: "server",
+  adapter: vercel({
+    webAnalytics: { enabled: true }
+  }),
+});
