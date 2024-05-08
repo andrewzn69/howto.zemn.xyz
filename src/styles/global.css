@@ -12,3 +12,50 @@ body {
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
 }
+			main article.markdown-body {
+				ul {
+					@apply list-disc list-inside pl-4 mb-4;
+				}
+				h1,
+				h2,
+				h3,
+				h4,
+				h5 {
+					@apply font-bold font-mplus;
+				}
+				h1 {
+					@apply text-4xl;
+				}
+				h2 {
+					@apply text-2xl;
+				}
+				h3 {
+					@apply text-xl pb-4;
+				}
+				h4 {
+					@apply text-lg;
+				}
+				img {
+					@apply border border-border rounded-xl mb-6;
+				}
+				p {
+					@apply mb-6;
+				}
+				a {
+					@apply underline underline-offset-2 hover:text-accent decoration-accent;
+				}
+				/* code { */
+				/* 	@apply p-2 rounded-md leading-[1.6]; */
+				/* } */
+				/* pre { */
+				/* 	@apply px-4 pt-5 overflow-y-hidden rounded-lg leading-[0.6] overflow-auto mb-5 mt-3; */
+				/* } */
+			}
+
+			pre {
+				@apply p-5 rounded-lg mb-5 mt-3;
+			}
+
+			pre > code {
+				all: unset !important;
+			}
