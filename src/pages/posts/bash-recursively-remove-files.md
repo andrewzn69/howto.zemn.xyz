@@ -9,7 +9,7 @@ tags:
 - bash
 - linux
 - cli
-heroImage: /posts/bash-logo.png
+heroImage: /posts/
 slug:  bash-recursively-remove-files
 ---
 

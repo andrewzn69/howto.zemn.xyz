@@ -1,0 +1,34 @@
+---
+description:
+public: true
+layout: ../../layouts/BlogPost.astro
+title: How to allow port with firewalld
+createdAt: 03/05/2024
+updatedAt: 03/05/2024
+tags:
+- firewalld
+- linux
+- security
+- cli
+heroImage: /posts/
+slug: firewalld-allow-port
+---
+
+1. (optional) Check the current status of the firewall
+
+```bash
+sudo firewall-cmd --state
+sudo firewall-cmd --list-ports
+```
+
+2. Allow the port
+
+```bash
+sudo firewall-cmd --zone=public --add-port=[port_number]/tcp --permanent
+```
+
+3. Reload the firewall
+
+```bash
+sudo firewall-cmd --reload
+```

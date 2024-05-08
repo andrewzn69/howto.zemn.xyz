@@ -9,7 +9,7 @@ tags:
 - arch linux
 - java
 - cli
-heroImage: /posts/archlinux-logo.png
+heroImage: /posts/
 slug: java-version-arch-linux
 ---
 

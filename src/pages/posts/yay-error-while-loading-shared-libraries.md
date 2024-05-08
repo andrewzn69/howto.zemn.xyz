@@ -9,7 +9,7 @@ tags:
 - arch linux
 - linux
 - cli
-heroImage: /posts/archlinux-logo.png
+heroImage: /posts/
 slug: yay-error-while-loading-shared-libraries
 ---
 

@@ -8,7 +8,7 @@ updatedAt: 07/05/2024
 tags:
 - docker
 - linux
-heroImage: /posts/docker.jpg
+heroImage: /posts/
 slug: docker-cleaning-up
 ---
 
