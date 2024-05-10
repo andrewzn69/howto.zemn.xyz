@@ -1,8 +1,8 @@
-import { defineConfig, sharpImageService } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind';
-import vercel from "@astrojs/vercel/serverless";
+import { defineConfig, sharpImageService } from 'astro/config'
+import sitemap from '@astrojs/sitemap'
+import react from '@astrojs/react'
+import tailwind from '@astrojs/tailwind'
+import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,8 +10,8 @@ export default defineConfig({
   integrations: [sitemap(), react(), tailwind()],
   markdown: {
     shikiConfig: {
-      theme: 'dracula',
-      // NOTE: Add light mode theme
+      theme: 'one-dark-pro',
+      // TODO: Add light mode theme
       // experimentalThemes: {
       //   light: 'dracula',
       //   dark: 'nord'
@@ -24,8 +24,8 @@ export default defineConfig({
   image: {
     service: sharpImageService()
   },
-  output: "hybrid",
+  output: 'hybrid',
   adapter: vercel({
     webAnalytics: { enabled: true }
-  }),
-});
+  })
+})

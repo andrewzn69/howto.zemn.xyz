@@ -9,7 +9,8 @@ module.exports = {
       },
       colors: {
         white: '#DED7D0',
-        bg: '#1E1D23',
+        bg: '#1A191E',
+        bgCode: '#1E1D23',
         gray: {
           light: '#938884',
           DEFAULT: '#7F737D',
@@ -33,7 +34,7 @@ module.exports = {
         pink: '#BDA9D4',
         // UI
         background: {
-          DEFAULT: '#1E1D23',
+          DEFAULT: '#1A191E',
           main: '#2E2D33',
           selection: '#817081',
           visualSelect: '#29292E',
