@@ -11,6 +11,7 @@ module.exports = {
         white: '#DED7D0',
         bg: '#1A191E',
         bgCode: '#1E1D23',
+        bgCodeWhite: '#E1E1E1',
         gray: {
           light: '#938884',
           DEFAULT: '#7F737D',

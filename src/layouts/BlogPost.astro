@@ -69,14 +69,12 @@ const {
 				pre > code {
 					all: unset !important;
 				}
+
 				.astro-code,
 				.astro-code span {
 					background-color: #1e1d23 !important;
+					@apply dark:!bg-bgCode !bg-bgCodeWhite transition-colors duration-500;
 				}
-				
-				/* .astro-code, */
-				/* .astro-code span { */
-				/* } */
 			}
 		</style>
 		<main class="pt-[70px]">
