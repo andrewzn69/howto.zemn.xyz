@@ -25,7 +25,10 @@ allPosts.map(post => {
 			<div class="items-center gap-6 hidden md:flex">
 				<HeaderLink href="https://www.zemn.xyz"> About </HeaderLink>
 
-				<HeaderLink href="https://github.com/withastro/astro" target="_blank">
+				<HeaderLink
+					href="https://github.com/andrewzn69/howto.zemn.xyz"
+					target="_blank"
+				>
 					<IoLogoGithub />
 					Source
 				</HeaderLink>
@@ -33,6 +36,9 @@ allPosts.map(post => {
 			<div class="flex-1"></div>
 			<ThemeToggle client:visible />
 			<DropdownMenu client:visible tags={Array.from(allTags)} />
+		</nav>
+	</div>
+</header>
 		</nav>
 	</div>
 </header>
