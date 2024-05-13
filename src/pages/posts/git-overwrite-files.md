@@ -1,0 +1,33 @@
+---
+description:
+layout: ../../layouts/BlogPost.astro
+title: How to force pull and overwrite local files in git
+createdAt: 09/05/2024
+updatedAt: 09/05/2024
+tags:
+- git
+- cli
+heroImage: /posts/
+slug: git-overwrite-files
+---
+
+1. First, update all origin/<branch> refs to latest:
+
+```bash
+git fetch --all
+```
+
+2. Backup your current branch (e.g. master):
+
+```bash
+git branch backup-master
+```
+
+3. Jump to the latest commit on origin/<branch> and checkout those files:
+
+```bash
+git reset --hard origin/master
+```
+
+References:
+[stackoverflow](https://stackoverflow.com/a/8888015)
