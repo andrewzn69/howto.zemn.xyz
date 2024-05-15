@@ -20,13 +20,14 @@ This project is built with the following technologies:
 root
 ├── public               # static assets
 │   └── posts            # images of posts
+├── scripts              # tools and utilities
 └── src
-    ├── components      # astro and react components
-    ├── layouts          # page layouts
-    ├── pages            # page files
-    │   ├── categories  # category pages
-    │   └── posts        # markdown files
-    └── styles           # global stylesheets
+    ├── components       # astro and react components
+    ├── layouts          # page layouts
+    ├── pages            # page files
+    │   ├── categories   # category pages
+    │   └── posts        # markdown files
+    └── styles           # global stylesheets
 ```
 
 ## Getting Started
