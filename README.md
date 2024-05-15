@@ -12,6 +12,7 @@ This project is built with the following technologies:
 - [React](https://reactjs.org/) - component library
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [Vercel](https://vercel.com/) - hosting
+- [Bun](https://bun.sh) - all-in-one javascript runtime & toolkit
 
 ## Project Structure
 
