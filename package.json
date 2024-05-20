@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "live-import": "node --experimental-vm-modules tools/import.mjs",
-    "postbuild": "pagefind --site dist"
+    "postbuild": "pagefind --source dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
