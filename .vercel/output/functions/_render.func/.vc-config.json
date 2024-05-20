@@ -1,6 +1,0 @@
-{
-	"runtime": "nodejs20.x",
-	"handler": "home/zimn/Development/howto.zemn.xyz/.vercel/output/_functions/entry.mjs",
-	"launcherType": "Nodejs",
-	"supportsResponseStreaming": true
-}
