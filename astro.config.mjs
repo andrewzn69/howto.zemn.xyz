@@ -4,13 +4,11 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel/serverless'
 import pagefind from "astro-pagefind"
+import robotsTxt from '@astrojs/robots-txt'
 
 export default defineConfig({
-	build: {
-		format: "file",
-	},
   site: 'https://howto.zemn.xyz/',
-  integrations: [sitemap(), react(), tailwind(), pagefind()],
+  integrations: [sitemap(), react(), tailwind(), pagefind(), robotsTxt()],
   markdown: {
     shikiConfig: {
       theme: 'one-dark-pro',
