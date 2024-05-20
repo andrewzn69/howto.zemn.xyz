@@ -8,8 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "live-import": "node --experimental-vm-modules tools/import.mjs",
-    "postbuild": "pagefind --source dist"
+    "live-import": "node --experimental-vm-modules tools/import.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -22,8 +21,9 @@
     "@types/react-dom": "^18.2.25",
     "@vercel/analytics": "^1.2.2",
     "astro": "^4.6.2",
-    "astro-pagefind": "^1.5.0",
+    "astro-robots-txt": "^1.0.0",
     "eslint": "^8.57.0",
+    "fuse.js": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",

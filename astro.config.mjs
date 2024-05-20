@@ -1,14 +1,14 @@
-import { defineConfig, sharpImageService } from 'astro/config'
-import sitemap from '@astrojs/sitemap'
-import react from '@astrojs/react'
-import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
-import pagefind from "astro-pagefind"
-import robotsTxt from '@astrojs/robots-txt'
+import { defineConfig, sharpImageService } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel/serverless';
+import robotsTxt from "astro-robots-txt";
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://howto.zemn.xyz/',
-  integrations: [sitemap(), react(), tailwind(), pagefind(), robotsTxt()],
+  integrations: [sitemap(), react(), tailwind(), robotsTxt()],
   markdown: {
     shikiConfig: {
       theme: 'one-dark-pro',
@@ -22,6 +22,8 @@ export default defineConfig({
   },
   output: 'hybrid',
   adapter: vercel({
-    webAnalytics: { enabled: true }
+    webAnalytics: {
+      enabled: true
+    }
   })
-})
+});
