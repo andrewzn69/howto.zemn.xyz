@@ -2,8 +2,8 @@
 import HeaderLink from './HeaderLink.astro'
 import { HOMEPAGE_URL } from '../config'
 import { IoLogoGithub } from 'react-icons/io5'
-import { Search } from './Search.tsx'
 import ThemeToggle from './ThemeToggleButton.tsx'
+import SearchBar from './SearchBar.astro'
 
 const allPosts = await Astro.glob('../pages/posts/*.md')
 const allTags = new Set<string>()
@@ -34,56 +34,8 @@ allPosts.map(post => {
 				</HeaderLink>
 			</div>
 			<div class="flex-1"></div>
+			<SearchBar />
 			<ThemeToggle client:visible />
-			<!-- <DropdownMenu client:visible tags={Array.from(allTags)} /> -->
-			<Search data={allPosts} />
 		</nav>
 	</div>
 </header>
-
-<style is:global>
-.pagefind-ui {
-    --pagefind-ui-scale: 0.75;
-    --pagefind-ui-primary: navy;
-    --pagefind-ui-text: black;
-    --pagefind-ui-border: slategrey;
-    --pagefind-ui-border-width: 1px;
-    --pagefind-ui-border-radius: 0.25rem;
-    --pagefind-ui-font: sans-serif;
-
-    width: 50%;
-  }
-
-  .pagefind-ui.yellow {
-    --pagefind-ui-background: lightyellow;
-  }
-
-  .pagefind-ui.red {
-    --pagefind-ui-background: peachpuff;
-    width: 100%;
-  }
-
-  .pagefind-ui .pagefind-ui__drawer:not(.pagefind-ui__hidden) {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-top: 0px;
-    z-index: 9999;
-    padding: 0 2em 1em;
-    overflow-y: auto;
-    box-shadow:
-      0 10px 10px -5px rgba(0, 0, 0, 0.2),
-      0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    border-bottom-right-radius: var(--pagefind-ui-border-radius);
-    border-bottom-left-radius: var(--pagefind-ui-border-radius);
-    background-color: var(--pagefind-ui-background);
-  }
-
-  .pagefind-ui .pagefind-ui__result-link {
-    color: var(--pagefind-ui-primary);
-  }
-
-  .pagefind-ui .pagefind-ui__result-excerpt {
-    color: var(--pagefind-ui-text);
-  }
-</style>
