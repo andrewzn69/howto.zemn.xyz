@@ -24,6 +24,6 @@ firewall-cmd --zone=public --remove-icmp-block={echo-request,echo-reply,timestam
 firewall-cmd --reload
 ```
 
-Sources:
+References:
 
 - <https://unix.stackexchange.com/a/585031>
