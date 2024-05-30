@@ -15,7 +15,7 @@ slug: firewalld-drop-icmp
 
 ```bash
 firewall-cmd --set-target=DROP --zone=public --permanent
-firewall-cmd --zone=nagios --remove-icmp-block={echo-request,echo-reply,timestamp-request,timestamp-reply} --permanent
+firewall-cmd --zone=public --remove-icmp-block={echo-request,echo-reply,timestamp-request,timestamp-reply} --permanent
 ```
 
 2. Reload the firewall
