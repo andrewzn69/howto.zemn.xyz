@@ -7,6 +7,9 @@ import SearchBar from './SearchBar.astro'
 import SearchDialog from './SearchDialog.tsx'
 
 const allPosts = await Astro.glob('../pages/posts/*.md')
+const posts = allPosts.filter(
+	post => !post.frontmatter.draft && post.frontmatter.slug
+)
 const allTags = new Set<string>()
 allPosts.map(post => {
 	post.frontmatter.tags &&
@@ -22,10 +25,8 @@ allPosts.map(post => {
 					andrewzn
 				</h2>
 			</a>
-
 			<div class="items-center gap-6 hidden md:flex">
 				<HeaderLink href="https://www.zemn.xyz"> About </HeaderLink>
-
 				<HeaderLink
 					href="https://github.com/andrewzn69/howto.zemn.xyz"
 					target="_blank"
@@ -35,7 +36,7 @@ allPosts.map(post => {
 				</HeaderLink>
 			</div>
 			<div class="flex-1"></div>
-			<SearchDialog client:load />
+			<SearchDialog client:load searchList={posts} />
 			<ThemeToggle client:visible />
 		</nav>
 	</div>
