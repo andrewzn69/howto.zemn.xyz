@@ -15,7 +15,9 @@ const options = {
 	keys: ["frontmatter.title", "frontmatter.description", "frontmatter.slug"],
 	includeMatches: true,
 	minMatchCharLength: 2,
-	threshold: 0.5,
+	threshold: 0,
+	matchAllTokens: true,
+	isCaseSensitive: false,
 };
 
 const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
@@ -40,7 +42,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 		}
 	};
 
-	const limitedResults = results.slice(0, 5); // Limit to 5 results as in Search.tsx
+	const limitedResults = results.slice(0, 15); // Limit to 5 results as in Search.tsx
 
 	return (
 		<Dialog open={isOpen} onOpenChange={toggleDialog}>
@@ -96,14 +98,6 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 							</div>
 						)}
 
-					{/* Conditionally display the results count if there are results */}
-					{query.length >= options.minMatchCharLength && results.length > 0 && (
-						<div className="my-4">
-							Found {limitedResults.length}{" "}
-							{limitedResults.length === 1 ? "result" : "results"} for '{query}'
-						</div>
-					)}
-
 					{/* Render the results if they exist */}
 					{limitedResults.length > 0 && (
 						<ul className="list-none">
@@ -113,7 +107,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 									className="py-2 border-gray-200 dark:border-gray-700"
 								>
 									<a
-										className="text-lg text-blue hover:text-blue hover:underline underline-offset-2"
+										className="text-lg text-foreground hover:text-blue hover:underline underline-offset-2"
 										href={`/posts/${post.frontmatter.slug}`}
 									>
 										{post.frontmatter.title}
