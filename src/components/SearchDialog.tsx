@@ -15,7 +15,7 @@ const options = {
 	keys: ["frontmatter.title", "frontmatter.description", "frontmatter.slug"],
 	includeMatches: true,
 	minMatchCharLength: 2,
-	threshold: 0,
+	threshold: 0.2,
 	matchAllTokens: true,
 	isCaseSensitive: false,
 };
