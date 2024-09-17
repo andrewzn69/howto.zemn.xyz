@@ -42,7 +42,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 		}
 	};
 
-	const limitedResults = results.slice(0, 15); // Limit to 5 results as in Search.tsx
+	const limitedResults = results.slice(0, 15);
 
 	return (
 		<Dialog open={isOpen} onOpenChange={toggleDialog}>
@@ -58,12 +58,11 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 				<DialogDescription>
 					<div className="relative">
 						<div className="absolute pb-1 inset-y-0 left-0 flex items-center pointer-events-none">
-							{/* Smaller Search Icon */}
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								className="icon icon-tabler icon-tabler-search"
-								width={15} // Smaller width
-								height={15} // Smaller height
+								width={15}
+								height={15}
 								viewBox="0 0 24 24"
 								strokeWidth="2"
 								stroke="currentColor"
@@ -85,12 +84,12 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 						/>
 					</div>
 
-					{/* Conditionally render the <hr /> if the query is long enough */}
+					{/* conditionally render hr tag if the query is long enough */}
 					{query.length >= options.minMatchCharLength && (
 						<hr className="my-4 border-gray-300 dark:border-border" />
 					)}
 
-					{/* Conditionally render "No results found." */}
+					{/* conditionally render "No results found." */}
 					{query.length >= options.minMatchCharLength &&
 						results.length === 0 && (
 							<div className="flex justify-center items-center py-4 text-foreground-context dark:text-foreground">
@@ -98,7 +97,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 							</div>
 						)}
 
-					{/* Render the results if they exist */}
+					{/* render the results if they exist */}
 					{limitedResults.length > 0 && (
 						<ul className="list-none">
 							{limitedResults.map((post, index) => (
