@@ -4,6 +4,7 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Body from '../components/Body.astro'
 import Content from '../components/Content.astro'
+import FormattedDate from '../components/FormattedDate.astro'
 import { SITE_TITLE } from '../config'
 
 export interface Props {
@@ -18,7 +19,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, tags }
+	content: { title, description, tags, createdAt }
 } = Astro.props
 ---
 
@@ -80,8 +81,11 @@ const {
 		<main class="pt-[70px]">
 			<Content className="pt-6 markdown-body">
 				<h1 class="text-3xl my-4 font-mplus">{title}</h1>
+				{createdAt && <FormattedDate date={new Date(createdAt)} />}
 				<div>{description}</div>
-				<div>
+				<hr class="border-top border-border my-4" />
+				<slot />
+				<div class="mt-6">
 					{
 						tags.map(tag => (
 							<a
@@ -94,8 +98,6 @@ const {
 						))
 					}
 				</div>
-				<hr class="border-top border-border my-4" />
-				<slot />
 			</Content>
 		</main>
 	</Body>

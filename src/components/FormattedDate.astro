@@ -1,17 +1,22 @@
 ---
+import { IoCalendarOutline } from 'react-icons/io5'
+
 interface Props {
-	date: Date;
+	date: Date
 }
 
-const { date } = Astro.props;
+const { date } = Astro.props
 ---
 
-<time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
-</time>
+<div class="flex items-center p-1">
+	<IoCalendarOutline className="mr-2" />
+	<time datetime={date.toISOString()}>
+		{
+			date.toLocaleDateString('en-us', {
+				year: 'numeric',
+				month: '2-digit',
+				day: '2-digit'
+			})
+		}
+	</time>
+</div>
