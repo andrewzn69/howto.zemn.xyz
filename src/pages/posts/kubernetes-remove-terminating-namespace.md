@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to remove namespace stuck in Terminating state in Kubernetes
-createdAt: 16/04/2023
-updatedAt: 16/04/2023
+createdAt: 04/16/2023
+updatedAt: 04/16/2023
 tags:
 - kubernetes
 - k3s

@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to fix Establishing connection to PulseAudio. Please wait...
-createdAt: 25/04/2024
-updatedAt: 25/04/2024
+createdAt: 04/25/2024
+updatedAt: 04/25/2024
 tags:
 - pulseaudio
 - linux

@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to change Java version on Arch Linux
-createdAt: 07/05/2024
-updatedAt: 07/05/2024
+createdAt: 05/07/2024
+updatedAt: 05/07/2024
 tags:
 - arch linux
 - java

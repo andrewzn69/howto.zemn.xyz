@@ -2,8 +2,8 @@
 description:
 layout: ../../layouts/BlogPost.astro
 title: How to drop ICMP packets with firewalld
-createdAt: 30/05/2024
-updatedAt: 30/05/2024
+createdAt: 05/30/2024
+updatedAt: 05/30/2024
 tags:
 - firewalld
 - linux

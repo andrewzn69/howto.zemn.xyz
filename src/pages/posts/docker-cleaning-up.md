@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to clear Docker cache and free up space on your system
-createdAt: 07/05/2024
-updatedAt: 07/05/2024
+createdAt: 05/07/2024
+updatedAt: 05/07/2024
 tags:
 - docker
 - linux

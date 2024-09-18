@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to see keypress codes in Linux
-createdAt: 14/12/2023
-updatedAt: 14/12/2023
+createdAt: 12/14/2023
+updatedAt: 12/14/2023
 tags:
 - linux
 - x11

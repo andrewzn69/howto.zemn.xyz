@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to run programs that require X11 on Wayland
-createdAt: 22/04/2024
-updatedAt: 22/04/2024
+createdAt: 04/22/2024
+updatedAt: 04/22/2024
 tags:
 - x11
 - wayland

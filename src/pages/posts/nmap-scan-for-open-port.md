@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to scan for open port with nmap
-createdAt: 06/12/2024
-updatedAt: 06/12/2024
+createdAt: 12/06/2023
+updatedAt: 12/06/2023
 tags:
 - nmap
 - cli

@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to troubleshoot SSH host identification issues
-createdAt: 12/01/2024
-updatedAt: 12/01/2024
+createdAt: 01/12/2024
+updatedAt: 01/12/2024
 tags:
 - ssh
 - security

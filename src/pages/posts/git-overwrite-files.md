@@ -2,8 +2,8 @@
 description:
 layout: ../../layouts/BlogPost.astro
 title: How to force pull and overwrite local files in git
-createdAt: 09/05/2024
-updatedAt: 09/05/2024
+createdAt: 05/09/2024
+updatedAt: 05/09/2024
 tags:
 - git
 - cli

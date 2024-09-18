@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to see GPU usage on Linux
-createdAt: 15/12/2023
-updatedAt: 15/12/2023
+createdAt: 12/15/2023
+updatedAt: 12/15/2023
 tags:
 - linux
 - cli

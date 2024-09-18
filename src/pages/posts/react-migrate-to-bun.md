@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to migrate to bun from yarn or npm
-createdAt: 14/05/2024
-updatedAt: 14/05/2024
+createdAt: 05/14/2024
+updatedAt: 05/14/2024
 tags:
 - npm
 - yarn

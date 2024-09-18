@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: 'How to fix qt.qpa.plugin: Could not find the Qt platform plugin "wayland"'
-createdAt: 27/04/2024
-updatedAt: 27/04/2024
+createdAt: 04/27/2024
+updatedAt: 04/27/2024
 tags:
 - qt
 - linux

@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to combine videos with FFmpeg
-createdAt: 13/11/2023
-updatedAt: 13/11/2023
+createdAt: 11/13/2023
+updatedAt: 11/13/2023
 tags:
 - ffmpeg
 - cli

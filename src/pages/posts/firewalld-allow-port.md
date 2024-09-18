@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to allow port with firewalld
-createdAt: 03/05/2024
-updatedAt: 03/05/2024
+createdAt: 05/03/2024
+updatedAt: 05/03/2024
 tags:
 - firewalld
 - linux

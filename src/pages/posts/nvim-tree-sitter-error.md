@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to fix treesitter not working in neovim
-createdAt: 22/11/2023
-updatedAt: 22/11/2023
+createdAt: 11/22/2023
+updatedAt: 11/22/2023
 tags:
 - neovim
 - cli

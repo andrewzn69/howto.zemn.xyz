@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to temporarily ignore changes in git
-createdAt: 09/02/2024
-updatedAt: 09/02/2024
+createdAt: 02/09/2024
+updatedAt: 02/09/2024
 tags:
 - git
 - cli

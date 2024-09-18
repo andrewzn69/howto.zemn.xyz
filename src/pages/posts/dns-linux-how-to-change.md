@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to change DNS on Linux
-createdAt: 26/4/2024
-updatedAt: 26/4/2024
+createdAt: 04/26/2024
+updatedAt: 04/26/2024
 tags:
 - dns
 - linux

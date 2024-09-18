@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: 'How to fix gpg: keyserver receive failed: No route to host'
-createdAt: 13/12/2023
-updatedAt: 13/12/2023
+createdAt: 12/13/2023
+updatedAt: 12/13/2023
 tags:
 - gpg
 - linux

@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: How to convert OVA to QCOW2 using QEMU
-createdAt: 17/2/2024
-updatedAt: 17/2/2024
+createdAt: 02/17/2024
+updatedAt: 02/17/2024
 tags:
 - virtual machines
 - virtualbox

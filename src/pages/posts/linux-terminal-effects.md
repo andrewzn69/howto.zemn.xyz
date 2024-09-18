@@ -3,8 +3,8 @@ description:
 public: true
 layout: ../../layouts/BlogPost.astro
 title: Best terminal effects for Linux
-createdAt: 14/12/2023
-updatedAt: 14/12/2023
+createdAt: 12/14/2023
+updatedAt: 12/14/2023
 tags:
 - linux
 - cli
