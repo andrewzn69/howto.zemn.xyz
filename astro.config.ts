@@ -5,6 +5,7 @@ import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import robotsTxt from "astro-robots-txt";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
 	integrations: [
 		sitemap(),
 		react(),
+		mdx(),
 		tailwind({
 			applyBaseStyles: false,
 		}),
