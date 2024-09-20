@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
 import robotsTxt from "astro-robots-txt";
+import { remarkReadingTime } from './src/lib/remark-reading-time.mjs'
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
 		applyBaseStyles: false,
 	}), robotsTxt()],
   markdown: {
+		remarkPlugins: [remarkReadingTime],
     shikiConfig: {
       theme: 'one-dark-pro',
       langs: [],

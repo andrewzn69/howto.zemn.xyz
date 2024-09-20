@@ -6,6 +6,7 @@ import Body from '../components/Body.astro'
 import Content from '../components/Content.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 import { SITE_TITLE } from '../config'
+import { Clock4 } from 'lucide-astro'
 
 export interface Props {
 	content: {
@@ -16,15 +17,19 @@ export interface Props {
 		heroImage?: string
 		tags: string[]
 	}
+	frontmatter: {
+		minutesRead: number
+	}
 }
 
 const {
-	content: { title, description, tags, createdAt }
+	content: { title, description, tags, createdAt },
+	frontmatter: { minutesRead }
 } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<sp lang="en">
 	<head>
 		<BaseHead title={title + ` / ${SITE_TITLE}`} description={description} />
 	</head>
@@ -81,7 +86,13 @@ const {
 		<main class="pt-[70px]">
 			<Content className="pt-6 markdown-body">
 				<h1 class="text-3xl my-4 font-mplus">{title}</h1>
-				{createdAt && <FormattedDate date={new Date(createdAt)} />}
+
+				<div class="flex items-center text-sm text-gray-600 space-x-3">
+					{createdAt && <FormattedDate date={new Date(createdAt)} />}
+					<Clock4 class="w-5 h-5" />
+					<span>{minutesRead}</span>
+				</div>
+
 				<div>{description}</div>
 				<hr class="border-top border-border my-4" />
 				<slot />
@@ -102,4 +113,3 @@ const {
 		</main>
 	</Body>
 	<Footer />
-</html>
