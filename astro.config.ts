@@ -18,7 +18,7 @@ export default defineConfig({
 		tailwind({
 			applyBaseStyles: false,
 		}),
-		robotsTxt(),
+		robotsTxt({ policy: [{ userAgent: "*", disallow: ["/404"] }] }),
 	],
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
