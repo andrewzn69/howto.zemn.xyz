@@ -5,7 +5,7 @@ import { IoLogoGithub } from 'react-icons/io5'
 import ThemeToggle from './ThemeToggleButton.tsx'
 import SearchDialog from './SearchDialog.tsx'
 
-const allPosts = await Astro.glob('../pages/posts/*.md')
+const allPosts = await Astro.glob('../pages/posts/*.mdx')
 const posts = allPosts.filter(
 	post => !post.frontmatter.draft && post.frontmatter.slug
 )
