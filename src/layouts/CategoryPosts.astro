@@ -24,7 +24,7 @@ const posts = (await Astro.glob('../pages/posts/*.mdx'))
 	.filter(item => item.frontmatter.tags.includes(category))
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
@@ -45,7 +45,7 @@ const posts = (await Astro.glob('../pages/posts/*.mdx'))
 								<li class="text-center mb-4">
 									<a href={post.url}>
 										<Image
-											class="border border-border rounded-xl"
+											class="border border-light-subAlt dark:border-dark-subAlt rounded-xl"
 											src={post.frontmatter.heroImage as string}
 											width={720 * 2}
 											height={720}

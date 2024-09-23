@@ -39,7 +39,7 @@ const posts = (await Astro.glob('./posts/*.mdx')).sort(
 						remember how to do things I repeat, so I can skip the search next
 						time.
 						<a
-							class="inline-flex items-center gap-1 indent-1 text-orange"
+							class="inline-flex items-center gap-1 indent-1 text-light-main dark:text-dark-main"
 							href={HOMEPAGE_URL}
 							>Learn more about me <IoArrowForward className="inline" />
 						</a>
@@ -57,7 +57,7 @@ const posts = (await Astro.glob('./posts/*.mdx')).sort(
 									<li class="text-center mb-4">
 										<a href={post.url}>
 											<Image
-												class="border border-border rounded-xl"
+												class="border border-light-subAlt dark:border-dark-subAlt rounded-xl"
 												src={heroImageSrc}
 												width={720}
 												height={720 / 1.777}
