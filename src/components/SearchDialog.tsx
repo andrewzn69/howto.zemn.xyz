@@ -4,7 +4,7 @@ import { type ChangeEvent, useState } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogTrigger } from './ui/dialog';
 
 interface SearchProps {
-	searchList: Array<any>;
+	searchList: Array<{ frontmatter: { title: string; description: string; slug: string } }>;
 }
 
 const options = {
@@ -19,7 +19,9 @@ const options = {
 const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [query, setQuery] = useState('');
-	const [results, setResults] = useState<any[]>([]);
+	const [results, setResults] = useState<
+		{ frontmatter: { title: string; description: string; slug: string } }[]
+	>([]);
 
 	const fuse = new Fuse(searchList, options);
 
@@ -44,7 +46,8 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 		<Dialog open={isOpen} onOpenChange={toggleDialog}>
 			<DialogTrigger asChild>
 				<button
-					className='flex justify-start w-[150px] px-3 py-2 text-sm text-light-sub dark:text-dark-text hover:text-light-bg dark:hover:text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text rounded-md focus:outline-none transition-colors'
+					type='button'
+					className='flex justify-start w-[150px] px-3 py-2 text-sm text-light-sub dark:text-dark-text hover:text-light-bg dark:hover:text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text rounded-md focus:outline-none transition-colors duration-500'
 					onClick={toggleDialog}
 				>
 					Search...
@@ -65,10 +68,12 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 								fill='none'
 								strokeLinecap='round'
 								strokeLinejoin='round'
+								aria-label='Search Icon'
 							>
-								<path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-								<circle cx={10} cy={10} r={7}></circle>
-								<line x1={21} y1={21} x2={15} y2={15}></line>
+								<title>Search Icon</title>
+								<path stroke='none' d='M0 0h24v24H0z' fill='none' />
+								<circle cx={10} cy={10} r={7} />
+								<line x1={21} y1={21} x2={15} y2={15} />
 							</svg>
 						</div>
 						<input
@@ -77,6 +82,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 							onChange={handleSearch}
 							className='block w-full px-2 pl-6 text-sm tracking-wider text-light-sub dark:text-dark-text bg-light-bg dark:bg-dark-bg caret-light-caret dark:caret-dark-main border-0 dark:bg-transparent focus:outline-none focus:ring-0'
 							placeholder='Search...'
+							aria-label='Search Input'
 						/>
 					</div>
 
@@ -88,9 +94,9 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 					{/* render the results if they exist */}
 					{limitedResults.length > 0 && (
 						<ul className='list-none'>
-							{limitedResults.map((post, index) => (
+							{limitedResults.map((post) => (
 								<li
-									key={index}
+									key={post.frontmatter.slug}
 									className='py-2 border-gray-200 dark:border-gray-700'
 								>
 									<a
