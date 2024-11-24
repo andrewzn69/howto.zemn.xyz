@@ -1,31 +1,31 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import Body from '../components/Body.astro'
-import Content from '../components/Content.astro'
-import FormattedDate from '../components/FormattedDate.astro'
-import { SITE_TITLE } from '../config'
-import { Clock4 } from 'lucide-astro'
+import { Clock4 } from "lucide-astro";
+import BaseHead from "../components/BaseHead.astro";
+import Body from "../components/Body.astro";
+import Content from "../components/Content.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE } from "../config";
 
 export interface Props {
 	content: {
-		title: string
-		description: string
-		createdAt?: string
-		updatedAt?: string
-		heroImage?: string
-		tags: string[]
-	}
+		title: string;
+		description: string;
+		createdAt?: string;
+		updatedAt?: string;
+		heroImage?: string;
+		tags: string[];
+	};
 	frontmatter: {
-		minutesRead: number
-	}
+		minutesRead: number;
+	};
 }
 
 const {
 	content: { title, description, tags, createdAt },
-	frontmatter: { minutesRead }
-} = Astro.props
+	frontmatter: { minutesRead },
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -95,7 +95,7 @@ const {
 				<slot />
 				<div class="mt-6">
 					{
-						tags.map(tag => (
+						tags.map((tag) => (
 							<a
 								href={`/categories/${tag}`}
 								class="inline-flex justify-center text-sm font-medium shadow-sm !text-light-sub dark:text-dark-sub hover:!text-light-bg dark:hover:!text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text focus:outline-none !no-underline transition-all rounded-md px-2 py-1 mt-2 mr-2 hover:dark:!text-foreground"

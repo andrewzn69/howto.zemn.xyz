@@ -31,7 +31,10 @@ const { title, description, image = "/cover.jpg" } = Astro.props;
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
 <meta property="og:image:alt" content={title} />
-<meta property="og:site_name" content={String(Astro.site).replace(/\/+$/, '')} />
+<meta
+	property="og:site_name"
+	content={String(Astro.site).replace(/\/+$/, "")}
+/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -41,19 +44,19 @@ const { title, description, image = "/cover.jpg" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-      return localStorage.getItem('theme')
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark'
-    }
-    return 'light'
-  })()
+	const theme = (() => {
+		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+			return localStorage.getItem("theme");
+		}
+		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+			return "dark";
+		}
+		return "light";
+	})();
 
-  if (theme === 'light') {
-    document.documentElement.classList.remove('dark')
-  } else {
-    document.documentElement.classList.add('dark')
-  }
+	if (theme === "light") {
+		document.documentElement.classList.remove("dark");
+	} else {
+		document.documentElement.classList.add("dark");
+	}
 </script>
