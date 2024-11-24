@@ -43,7 +43,9 @@
 	},
 	"overrides": [
 		{
-			"include": ["*.astro"],
+			"include": [
+				"*.astro"
+			],
 			"linter": {
 				"rules": {
 					"style": {
@@ -55,10 +57,11 @@
 		}
 	],
 	"javascript": {
-		"globals": ["Astro"],
+		"globals": [
+			"Astro"
+		],
 		"formatter": {
 			"jsxQuoteStyle": "single",
-			"quoteProperties": "asNeeded",
 			"trailingCommas": "es5",
 			"semicolons": "always",
 			"arrowParentheses": "always",
@@ -69,6 +72,10 @@
 		}
 	},
 	"files": {
-		"ignore": ["dist/**", "node_modules/**", ".env"]
+		"ignore": [
+			"dist/**",
+			"node_modules/**",
+			".env"
+		]
 	}
 }
