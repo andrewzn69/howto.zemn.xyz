@@ -42,6 +42,7 @@ export default function ThemeToggle() {
 				const checked = t === theme;
 				return (
 					<button
+						type='button'
 						key={t}
 						className={`${
 							checked ? 'bg-light-bg text-dark-bg' : ''
