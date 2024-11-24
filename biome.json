@@ -2,11 +2,11 @@
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"formatter": {
 		"enabled": true,
-		"formatWithErrors": false,
+		"formatWithErrors": true,
 		"indentStyle": "tab",
 		"indentWidth": 4,
 		"lineEnding": "crlf",
-		"lineWidth": 110,
+		"lineWidth": 100,
 		"attributePosition": "auto"
 	},
 	"organizeImports": {
@@ -15,7 +15,7 @@
 	"linter": {
 		"enabled": true,
 		"rules": {
-			"recommended": false,
+			"recommended": true,
 			"complexity": {
 				"noBannedTypes": "error",
 				"noUselessTypeConstraint": "error"
@@ -23,7 +23,6 @@
 			"correctness": {
 				"noInvalidUseBeforeDeclaration": "off",
 				"noPrecisionLoss": "error",
-				"noUnusedVariables": "error",
 				"useArrayLiterals": "off"
 			},
 			"style": {
