@@ -9,7 +9,7 @@ const allPosts = await Astro.glob('../pages/posts/*.mdx');
 const posts = allPosts.filter((post) => !post.frontmatter.draft && post.frontmatter.slug);
 const allTags = new Set<string>();
 allPosts.map((post) => {
-	post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => allTags.add(tag));
+	post.frontmatter.tags?.map((tag: string) => allTags.add(tag));
 });
 ---
 
