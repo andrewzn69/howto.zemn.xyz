@@ -3,7 +3,5 @@
 		"silent": true
 	},
 	"cleanUrls": true,
-	"rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
+	"rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
