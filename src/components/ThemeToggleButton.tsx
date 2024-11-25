@@ -17,6 +17,7 @@ export default function ThemeToggle() {
 		}
 		return 'light';
 	});
+
 	const toggleTheme = () => {
 		const t = theme === 'light' ? 'dark' : 'light';
 		localStorage.setItem('theme', t);
@@ -25,10 +26,9 @@ export default function ThemeToggle() {
 
 	useEffect(() => {
 		const root = document.documentElement;
-		if (theme === 'light') {
-			root.classList.remove('dark');
-		} else {
-			root.classList.add('dark');
+		root.classList.remove('light', 'dark');
+		if (theme) {
+			root.classList.add(theme);
 		}
 	}, [theme]);
 
