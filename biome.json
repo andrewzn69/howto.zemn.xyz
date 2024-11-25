@@ -1,0 +1,81 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"formatter": {
+		"enabled": true,
+		"formatWithErrors": true,
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineEnding": "crlf",
+		"lineWidth": 100,
+		"attributePosition": "auto"
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"complexity": {
+				"noBannedTypes": "error",
+				"noUselessTypeConstraint": "error"
+			},
+			"correctness": {
+				"noInvalidUseBeforeDeclaration": "off",
+				"noPrecisionLoss": "error",
+				"useArrayLiterals": "off"
+			},
+			"style": {
+				"noNamespace": "error",
+				"useAsConstAssertion": "error",
+				"useBlockStatements": "off",
+				"useConst": "error",
+				"noVar": "warn",
+				"useTemplate": "warn"
+			},
+			"suspicious": {
+				"noExplicitAny": "error",
+				"noExtraNonNullAssertion": "error",
+				"noMisleadingInstantiator": "error",
+				"noUnsafeDeclarationMerging": "error"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"include": [
+				"*.astro"
+			],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					}
+				}
+			}
+		}
+	],
+	"javascript": {
+		"globals": [
+			"Astro"
+		],
+		"formatter": {
+			"jsxQuoteStyle": "single",
+			"trailingCommas": "es5",
+			"semicolons": "always",
+			"arrowParentheses": "always",
+			"bracketSpacing": true,
+			"bracketSameLine": false,
+			"quoteStyle": "single",
+			"attributePosition": "auto"
+		}
+	},
+	"files": {
+		"ignore": [
+			"dist/**",
+			"node_modules/**",
+			".env"
+		]
+	}
+}

@@ -1,30 +1,30 @@
 ---
-import { Image } from 'astro:assets'
-import BaseHead from '../components/BaseHead.astro'
-import Body from '../components/Body.astro'
-import Breadcrumb from '../components/Breadcrumb.astro'
-import Content from '../components/Content.astro'
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
-import Masthead from '../components/Masthead.astro'
-import { SITE_DESCRIPTION, SITE_TITLE } from '../config'
+import { Image } from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Body from '../components/Body.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import Content from '../components/Content.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Masthead from '../components/Masthead.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../config';
 
 export interface Props {
-	category: string
+	category: string;
 }
 
-const { category } = Astro.props
+const { category } = Astro.props;
 
-const posts = (await Astro.glob('../pages/posts/*.md'))
+const posts = (await Astro.glob('../pages/posts/*.mdx'))
 	.sort(
 		(a, b) =>
 			new Date(b.frontmatter.createdAt).valueOf() -
 			new Date(a.frontmatter.createdAt).valueOf()
 	)
-	.filter(item => item.frontmatter.tags.includes(category))
+	.filter((item) => item.frontmatter.tags.includes(category));
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
@@ -45,7 +45,7 @@ const posts = (await Astro.glob('../pages/posts/*.md'))
 								<li class="text-center mb-4">
 									<a href={post.url}>
 										<Image
-											class="border border-border rounded-xl"
+											class="border border-light-subAlt dark:border-dark-subAlt rounded-xl"
 											src={post.frontmatter.heroImage as string}
 											width={720 * 2}
 											height={720}

@@ -1,19 +1,24 @@
 ---
-import HeaderLink from './HeaderLink.astro'
-import { HOMEPAGE_URL } from '../config'
-import { IoLogoGithub } from 'react-icons/io5'
-import ThemeToggle from './ThemeToggleButton.tsx'
-import SearchDialog from './SearchDialog.tsx'
+import { IoLogoGithub } from 'react-icons/io5';
+import { HOMEPAGE_URL } from '../config';
+import HeaderLink from './HeaderLink.astro';
+import SearchDialog from './SearchDialog.tsx';
+import ThemeToggle from './ThemeToggleButton.tsx';
 
-const allPosts = await Astro.glob('../pages/posts/*.md')
-const posts = allPosts.filter(
-	post => !post.frontmatter.draft && post.frontmatter.slug
-)
-const allTags = new Set<string>()
-allPosts.map(post => {
-	post.frontmatter.tags &&
-		post.frontmatter.tags.map((tag: string) => allTags.add(tag))
-})
+const allPosts = await Astro.glob('../pages/posts/*.mdx');
+const posts = allPosts
+	.filter((post) => !post.frontmatter.draft && post.frontmatter.slug)
+	.map((post) => ({
+		frontmatter: {
+			title: post.frontmatter.title,
+			description: post.frontmatter.description,
+			slug: post.frontmatter.slug,
+		},
+	}));
+const allTags = new Set<string>();
+allPosts.map((post) => {
+	post.frontmatter.tags?.map((tag: string) => allTags.add(tag));
+});
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md">
@@ -25,7 +30,7 @@ allPosts.map(post => {
 				</h2>
 			</a>
 			<div class="items-center gap-6 hidden md:flex">
-				<HeaderLink href="https://www.zemn.xyz"> About </HeaderLink>
+				<HeaderLink href={HOMEPAGE_URL}> About </HeaderLink>
 				<HeaderLink
 					href="https://github.com/andrewzn69/howto.zemn.xyz"
 					target="_blank"
