@@ -68,6 +68,12 @@ const {
 				a {
 					@apply underline underline-offset-2 hover:text-light-main dark:hover:text-dark-main decoration-light-main dark:decoration-dark-main;
 				}
+				figure {
+					@apply !my-6;
+				}
+				pre {
+					@apply scrollbar-thin transition-colors duration-500;
+				}
 			}
 		</style>
 		<main class="pt-[70px]">
@@ -98,7 +104,7 @@ const {
 						tags.map((tag) => (
 							<a
 								href={`/categories/${tag}`}
-								class="inline-flex justify-center text-sm font-medium shadow-sm !text-light-sub dark:text-dark-sub hover:!text-light-bg dark:hover:!text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2 hover:dark:!text-foreground transition-colors duration-500"
+								class="inline-flex justify-center text-sm font-medium shadow-sm !text-light-sub dark:!text-dark-sub hover:!text-light-bg dark:hover:!text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2 hover:dark:!text-foreground transition-colors duration-500"
 							>
 								<span class="tracking-wider">#</span>
 								<span>{tag}</span>
