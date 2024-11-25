@@ -6,7 +6,15 @@ import SearchDialog from './SearchDialog.tsx';
 import ThemeToggle from './ThemeToggleButton.tsx';
 
 const allPosts = await Astro.glob('../pages/posts/*.mdx');
-const posts = allPosts.filter((post) => !post.frontmatter.draft && post.frontmatter.slug);
+const posts = allPosts
+	.filter((post) => !post.frontmatter.draft && post.frontmatter.slug)
+	.map((post) => ({
+		frontmatter: {
+			title: post.frontmatter.title,
+			description: post.frontmatter.description,
+			slug: post.frontmatter.slug,
+		},
+	}));
 const allTags = new Set<string>();
 allPosts.map((post) => {
 	post.frontmatter.tags?.map((tag: string) => allTags.add(tag));
