@@ -27,8 +27,6 @@ export default defineConfig({
 			plugins: [pluginLineNumbers()],
 			themes: ['nord', nordlight],
 			styleOverrides: {
-				codeFontFamily: 'jetbrains-mono',
-				uiFontFamily: 'jetbrains-mono',
 				frames: {
 					frameBoxShadowCssValue: '0 4px 20px rgba(0,0,0, 0.1)',
 				},
