@@ -45,7 +45,7 @@ vim tmp.json
 
 3. Remove `"kubernetes"` from the finalizer array and save the file
 
-```diff
+```json frame="code" title="tmp.json" del={14} showLineNumbers
 {
     "apiVersion": "v1",
     "kind": "Namespace",
@@ -59,7 +59,7 @@ vim tmp.json
     },
     "spec": {
         "finalizers": [
--           "kubernetes"
+            "kubernetes"
         ]
     },
     "status": {
@@ -86,3 +86,6 @@ curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http:
 $ kubectl get namespace test-namespace
 Error from server (NotFound): namespaces "test-namespace" not found
 ```
+
+References:
+- https://www.redhat.com/en/blog/troubleshooting-terminating-namespaces
