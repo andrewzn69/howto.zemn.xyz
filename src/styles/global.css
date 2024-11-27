@@ -84,7 +84,7 @@ body {
 
 
 .callout {
-	@apply my-3 border-l-4 px-4 pt-4 pb-1;
+	@apply my-5 border-l-4 px-4 pt-4 pb-1;
 }
 
 .callout-indicator {
