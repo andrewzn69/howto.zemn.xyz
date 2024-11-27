@@ -35,8 +35,8 @@ If you know why the key changed, such as an IP address change, then resolve this
 
 The line number of the relevant key entry is listed in the error message. In the example below, the line number is 12.
 
-```bash
-ssh-keygen -R server1.example.com -f ~/.ssh/known_hosts
+```bash "line 12"
+$ ssh-keygen -R server1.example.com -f ~/.ssh/known_hosts
 # Host server1.example.com found: line 12
 /home/user/.ssh/known_hosts updated.
 Original contents retained as /home/user/.ssh/known_hosts.old
