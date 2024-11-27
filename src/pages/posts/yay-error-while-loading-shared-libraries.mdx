@@ -13,26 +13,32 @@ heroImage: /posts/
 slug: yay-error-while-loading-shared-libraries
 ---
 
-```yay: error while loading shared libraries: libalpm.so.13: cannot open shared object file: No such file or directory```
+```bash
+yay: error while loading shared libraries: libalpm.so.13: cannot open shared object file: No such file or directory
+```
 
 This error can only be fixed by reinstalling yay. There is no other way to solve this error.
 
 1. Remove `yay`:
 
-```
+```bash
 pacman -R yay
 ```
 
 2. Make a new directory and clone the `yay` repository
 
-```
+```bash
 git clone https://aur.archlinux.org/yay.git && cd yay
 ```
 
 3. Build and install `yay`:
 
-```
+```bash
 makepkg -si
 ```
 
 After installation, you can use `yay` as usual.
+
+Resources:
+
+- https://github.com/Jguer/yay/issues/2502#issuecomment-2351022248

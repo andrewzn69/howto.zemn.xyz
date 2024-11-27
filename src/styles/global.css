@@ -81,3 +81,91 @@ body {
 		--chart-5: 340 75% 55%;
 	}
 }
+
+
+.callout {
+	@apply my-5 border-l-4 px-4 pt-4 pb-1;
+}
+
+.callout-indicator {
+	@apply flex items-center space-x-2 mb-2
+}
+
+
+.callout-note {
+	@apply border-blue text-blue;
+}
+
+.callout-tip {
+	@apply border-green text-green;
+}
+
+.callout-important {
+	@apply border-purple text-purple;
+}
+
+.callout-warning {
+	@apply border-orange text-orange;
+}
+
+.callout-caution {
+	@apply border-red text-red;
+}
+
+.callout p {
+	@apply !my-2 text-light-sub dark:text-dark-text;
+}
+
+.ionicon {
+	@apply w-6 h-6;
+}
+
+main article.markdown-body {
+	ul {
+		@apply list-disc list-inside pl-4 mb-4;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		@apply font-bold font-mplus;
+	}
+
+	h1 {
+		@apply text-4xl;
+	}
+
+	h2 {
+		@apply text-2xl;
+	}
+
+	h3 {
+		@apply text-xl pb-4;
+	}
+
+	h4 {
+		@apply text-lg;
+	}
+
+	img {
+		@apply border rounded-xl mb-6;
+	}
+
+	p {
+		@apply my-6;
+	}
+
+	a {
+		@apply underline underline-offset-2 hover:text-light-main dark:hover:text-dark-main decoration-light-main dark:decoration-dark-main transition-colors;
+	}
+
+	figure {
+		@apply !my-6;
+	}
+
+	pre {
+		@apply scrollbar-thin transition-colors duration-500;
+	}
+}

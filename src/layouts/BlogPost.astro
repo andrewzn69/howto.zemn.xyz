@@ -35,47 +35,6 @@ const {
 
 	<Body>
 		<Header />
-		<style is:global>
-			main article.markdown-body {
-				ul {
-					@apply list-disc list-inside pl-4 mb-4;
-				}
-				h1,
-				h2,
-				h3,
-				h4,
-				h5 {
-					@apply font-bold font-mplus;
-				}
-				h1 {
-					@apply text-4xl;
-				}
-				h2 {
-					@apply text-2xl;
-				}
-				h3 {
-					@apply text-xl pb-4;
-				}
-				h4 {
-					@apply text-lg;
-				}
-				img {
-					@apply border rounded-xl mb-6;
-				}
-				p {
-					@apply mb-6;
-				}
-				a {
-					@apply underline underline-offset-2 hover:text-light-main dark:hover:text-dark-main decoration-light-main dark:decoration-dark-main transition-colors;
-				}
-				figure {
-					@apply !my-6;
-				}
-				pre {
-					@apply scrollbar-thin transition-colors duration-500;
-				}
-			}
-		</style>
 		<main class="pt-[70px]">
 			<Content className="pt-6 markdown-body">
 				<h1 class="text-3xl my-4 font-mplus">{title}</h1>

@@ -8,6 +8,8 @@ import robotsTxt from 'astro-robots-txt';
 import expressiveCode, { ExpressiveCodeTheme } from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import { remarkReadingTime } from './src/lib/remark-reading-time.mjs';
+import remarkAside from './src/lib/remark-aside.mjs';
+import remarkDirective from 'remark-directive';
 import fs from 'node:fs';
 
 // @expressive-code does not have nord-light theme
@@ -27,8 +29,6 @@ export default defineConfig({
 			plugins: [pluginLineNumbers()],
 			themes: ['nord', nordlight],
 			styleOverrides: {
-				codeFontFamily: 'jetbrains-mono',
-				uiFontFamily: 'jetbrains-mono',
 				frames: {
 					frameBoxShadowCssValue: '0 4px 20px rgba(0,0,0, 0.1)',
 				},
@@ -44,7 +44,7 @@ export default defineConfig({
 		robotsTxt({ policy: [{ userAgent: '*', disallow: ['/404'] }] }),
 	],
 	markdown: {
-		remarkPlugins: [remarkReadingTime],
+		remarkPlugins: [remarkDirective, remarkAside, remarkReadingTime],
 	},
 	image: {
 		service: sharpImageService(),

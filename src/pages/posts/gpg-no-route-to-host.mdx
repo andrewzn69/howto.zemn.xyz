@@ -15,12 +15,8 @@ slug: gpg-no-route-to-host
 
 1. Open `~.gnupg/gpg.conf` and add the following line:
 
-```bash
+```bash frame="code" title="gpg.conf"
 keyserver hkp://keyserver.ubuntu.com:80
 ```
 
-2. If the above step doesn't work, check (and change) your DNS:
-
-```bash
-cat /etc/resolv.conf
-```
+If the above step doesn't work, [check (and change) your DNS](https://howto.zemn.xyz/posts/dns-linux-how-to-change)
