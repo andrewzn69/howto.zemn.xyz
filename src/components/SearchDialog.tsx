@@ -47,7 +47,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 			<DialogTrigger asChild>
 				<button
 					type='button'
-					className='flex justify-start w-[150px] px-3 py-2 text-sm text-light-sub dark:text-dark-text hover:text-light-bg dark:hover:text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text rounded-md focus:outline-none transition-colors duration-500'
+					className='flex justify-start w-[150px] px-3 py-2 font-mplus text-sm text-light-sub dark:text-dark-text hover:text-light-bg dark:hover:text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text rounded-md focus:outline-none transition-colors duration-500'
 					onClick={toggleDialog}
 				>
 					Search...
@@ -56,7 +56,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 			<DialogContent>
 				<DialogDescription>
 					<div className='relative'>
-						<div className='absolute pb-1 inset-y-0 left-0 flex items-center text-light-sub dark:text-dark-sub pointer-events-none'>
+						<div className='flex absolute pb-1 inset-y-0 left-0 items-center text-light-sub dark:text-dark-sub pointer-events-none'>
 							<svg
 								xmlns='http://www.w3.org/2000/svg'
 								className='icon icon-tabler icon-tabler-search'
@@ -80,7 +80,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 							type='text'
 							value={query}
 							onChange={handleSearch}
-							className='block w-full px-2 pl-6 text-sm tracking-wider text-light-sub dark:text-dark-text bg-light-bg dark:bg-dark-bg caret-light-caret dark:caret-dark-main border-0 dark:bg-transparent focus:outline-none focus:ring-0'
+							className='block w-full pb-1 pl-6 text-md tracking-wider font-mplus text-light-sub dark:text-dark-text bg-light-bg dark:bg-dark-bg caret-light-caret dark:caret-dark-main border-0 dark:bg-transparent focus:outline-none focus:ring-0'
 							placeholder='Search...'
 							aria-label='Search Input'
 						/>
@@ -100,7 +100,7 @@ const SearchDialog: React.FC<SearchProps> = ({ searchList }) => {
 									className='py-2 border-gray-200 dark:border-gray-700'
 								>
 									<a
-										className='text-lg text-light-sub dark:text-dark-sub hover:text-light-main dark:hover:text-dark-main hover:underline underline-offset-2'
+										className='text-lg font-mplus text-light-sub dark:text-dark-sub hover:text-light-main dark:hover:text-dark-main  hover:underline transition-colors underline-offset-4'
 										href={`/posts/${post.frontmatter.slug}`}
 									>
 										{post.frontmatter.title}
