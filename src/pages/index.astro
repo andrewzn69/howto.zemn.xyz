@@ -16,7 +16,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg
 console.log('images:', images);
 
 const posts = (await Astro.glob('./posts/*.mdx')).sort(
-	(a: any, b: any) =>
+	(a, b) =>
 		new Date(b.frontmatter.createdAt).valueOf() - new Date(a.frontmatter.createdAt).valueOf()
 );
 ---
