@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { IoArrowForward } from 'react-icons/io5';
 import BaseHead from '../components/BaseHead.astro';
@@ -10,6 +9,8 @@ import Header from '../components/Header.astro';
 import Masthead from '../components/Masthead.astro';
 import { HOMEPAGE_URL, SITE_DESCRIPTION, SITE_TITLE } from '../config';
 import '../styles/global.css';
+import * as Icons from 'react-icons/si';
+import { IoCodeSlash } from 'react-icons/io5';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
 console.log('images:', images);
@@ -31,7 +32,7 @@ const posts = (await Astro.glob('./posts/*.mdx')).sort(
 			<Masthead />
 			<Content>
 				<section>
-					<p class="mb-8 indent-4">
+					<p class="font-mplus">
 						This is my personal knowledge base: Quick tips and tricks to
 						remember how to do things I repeat, so I can skip the search next
 						time.
@@ -43,33 +44,25 @@ const posts = (await Astro.glob('./posts/*.mdx')).sort(
 					</p>
 				</section>
 				<section>
-					<ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<h2 class="text-2xl font-mplus font-medium my-9 ">Recent Posts</h2>
+					<ul class="grid grid-cols-1 items-start md:grid-cols-1 gap-7">
 						{
 							posts.map((post) => {
-								const heroImageAsset = images[post.frontmatter.heroImage];
-								const heroImageSrc = heroImageAsset
-									? heroImageAsset()
-									: post.frontmatter.heroImage;
-								return (
-									<li class="text-center mb-4">
-										<a href={post.url}>
-											<Image
-												class="border border-light-subAlt dark:border-dark-subAlt rounded-xl"
-												src={heroImageSrc}
-												width={720}
-												height={720 / 1.777}
-												alt="Thumbnail"
-											/>
-											<div class="mt-3 text-xl font-bold">
-												{post.frontmatter.title}
+							const IconComponent = Icons[post.frontmatter.icon as keyof typeof Icons] || IoCodeSlash;
+							return (
+								<a href={post.url}>
+									<li class="flex items-center pb-5 pt-2 pl-5 rounded-lg border-t border-l border-white dark:border-dark-subAlt transition duration-300 ease-in-out hover:bg-opacity-10 hover:border-opacity-50 shadow-lg dark:shadow-[rgba(0,0,0,0.2)] hover:shadow-xl">
+										<div class="flex gap-4 items-center mt-3 text-xl font-mplus">
+											<IconComponent />
+											{post.frontmatter.title}
+										</div>
+										{post.frontmatter.description && (
+											<div class="opacity-70">
+												{post.frontmatter.description}
 											</div>
-											{post.frontmatter.description && (
-												<div class="opacity-70">
-													{post.frontmatter.description}
-												</div>
-											)}
-										</a>
+										)}
 									</li>
+								</a>
 								);
 							})
 						}
