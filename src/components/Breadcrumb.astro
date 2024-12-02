@@ -3,9 +3,9 @@ import { IoChevronForward } from 'react-icons/io5';
 ---
 
 <div class="my-4 flex items-center gap-1">
-	<a href="/" class="underline underline-offset-2">Index</a>
-	<IoChevronForward className="opacity-50" />
-	<span class="text-light-main dark:text-dark-main font-mplus font-bold"
-		><slot /></span
-	>
+	<a href="/" class="underline underline-offset-2 font-mplus text-lg">Index</a>
+	<IoChevronForward className="h-4 pt-1" />
+	<span class="text-light-main dark:text-dark-main font-mplus font-bold text-lg">
+		<slot />
+	</span>
 </div>
