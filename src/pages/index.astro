@@ -51,7 +51,7 @@ const posts = (await Astro.glob('./posts/*.mdx')).sort(
 							const IconComponent = Icons[post.frontmatter.icon as keyof typeof Icons] || IoCodeSlash;
 							return (
 								<a href={post.url}>
-									<li class="flex items-center pb-5 pt-2 pl-5 rounded-lg border-t border-l border-white dark:border-dark-subAlt transition duration-300 ease-in-out hover:bg-opacity-10 hover:border-opacity-50 shadow-lg dark:shadow-[rgba(0,0,0,0.2)] hover:shadow-xl">
+									<li class="flex items-center pb-5 pt-2 pl-5 rounded-lg border-t border-l border-white dark:border-dark-subAlt transition duration-300 ease-in-out hover:bg-opacity-10 hover:border-opacity-50 shadow-lg dark:shadow-[rgba(0,0,0,0.15)] hover:shadow-xl">
 										<div class="flex gap-4 items-center mt-3 text-xl font-mplus">
 											<IconComponent />
 											{post.frontmatter.title}
