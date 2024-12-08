@@ -1,0 +1,123 @@
+---
+description:
+public: true
+layout: ../../layouts/BlogPost.astro
+title: Using Phoenix to create a REST API
+createdAt: 2024-12-08
+updatedAt: 2024-12-08
+tags:
+- phoenix
+- elixir
+- api
+- backend
+slug: phoenix-create-rest-api
+icon: SiPhoenixframework
+---
+
+1. Install Elixir and Erlang
+
+```bash
+# Arch Linux
+sudo pacman -S elixir
+
+# Debian
+sudo apt install erlang-dev elixir
+
+# Fedora
+sudo dnf install elixir erlang
+
+# macOS
+brew install elixir
+```
+
+```bash
+$ elixir -v
+
+Erlang/OTP 27 [erts-15.1.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit:ns]
+
+Elixir 1.17.3 (compiled with Erlang/OTP 27)
+```
+
+2. Install Hex
+```bash
+mix local.hex
+```
+
+3. Install Phoenix
+```bash
+mix archive.install hex phx_new
+```
+
+4. Create a new Phoenix project (since we are creating a REST API, we will skip some of the options)
+```bash
+mix phx.new [folder_name] --app [app name] --database [database] --no-install --no-live --no-assets --no-html --no-dashboard --no-mailer --binary-id
+```
+
+Options:
+- `folder name` - The name of the folder where the project will be created.
+- `app name` - The name of the OTP application.
+- `database` - Specify the database adapter for Ecto. One of:
+    - `postgres` - via https://github.com/elixir-ecto/postgrex
+    - `mysql` - via https://github.com/elixir-ecto/myxql
+    - `mssql` - via https://github.com/livehelpnow/tds
+    - `sqlite3` - via https://github.com/elixir-sqlite/ecto_sqlite3 \
+    Defaults to `postgres`.
+- `--no-install` - Skip installing dependencies.
+- `--no-live` - Skip LiveView.
+- `--no-assets` - Skip assets.
+- `--no-html` - Skip HTML views.
+- `--no-dashboard` - Skip the Phoenix Dashboard.
+- `--no-mailer` - Skip generating Swoosh mailer files.
+- `--binary-id` - Use binary UUIDs for primary keys.
+
+:::note
+More of the options can be found at [hexdocs.pm](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html)
+:::
+
+Example:
+```bash
+mix phx.new my_app --app my_app --database postgres --no-install --no-live --no-assets --no-html --no-dashboard --no-mailer --binary-id
+```
+
+5. Change directory to the project folder
+```bash
+cd my_app
+```
+
+6. Change the database configuration in `config/dev.exs`
+```elixir frame="code" title="dev.exs" showLineNumbers "postgres" "localhost" "my_app_dev"
+import Config
+
+# Configure your database
+config :my_app, My_app.Repo,
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  database: "my_app_dev",
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+```
+
+8. Install dependencies
+```bash
+mix deps.get
+```
+
+9. Create the database
+```bash
+mix ecto.create
+```
+
+10. Start the Phoenix server
+```bash
+mix phx.server
+```
+
+11. Visit `http://localhost:4000` in your browser to see the Phoenix welcome page.
+
+Resources:
+- https://elixir-lang.org/install.html
+- https://hexdocs.pm/phoenix/Mix.Tasks.Phx.New.html
+- https://hexdocs.pm/phoenix/up_and_running.html
+
