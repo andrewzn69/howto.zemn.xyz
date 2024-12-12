@@ -4,6 +4,7 @@ import type { Config } from 'tailwindcss';
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	darkMode: 'class',
+	mode: 'jit',
 	plugins: [
 		require('tailwindcss-animate'),
 		require('tailwind-scrollbar')({ nocompatible: true }),
@@ -12,6 +13,12 @@ export default {
 		extend: {
 			fontFamily: {
 				mplus: ["'proxima-soft'", 'Verdana', 'sans-serif'],
+				mono: [
+					"ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+				],
+			},
+			boxShadow: {
+				ng: '0 1px 10px rgba(0, 0, 0, 0.1)',
 			},
 			colors: {
 				light: {
