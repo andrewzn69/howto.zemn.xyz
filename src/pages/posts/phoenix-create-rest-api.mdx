@@ -50,7 +50,16 @@ mix archive.install hex phx_new
 
 4. Create a new Phoenix project (since we are creating a REST API, we will skip some of the options)
 ```bash
-mix phx.new [folder_name] --app [app name] --database [database] --no-install --no-live --no-assets --no-html --no-dashboard --no-mailer --binary-id
+mix phx.new $FOLDERNAME \
+            --app $APPNAME \
+            --database $DATABASE \
+            --no-install \
+            --no-live \
+            --no-assets \
+            --no-html \
+            --no-dashboard \
+            --no-mailer \
+            --binary-id
 ```
 
 Options:
@@ -76,7 +85,16 @@ More of the options can be found at [hexdocs.pm](https://hexdocs.pm/phoenix/Mix.
 
 Example:
 ```bash
-mix phx.new my_app --app my_app --database postgres --no-install --no-live --no-assets --no-html --no-dashboard --no-mailer --binary-id
+mix phx.new my_app \
+            --app my_app \
+            --database postgres \
+            --no-install \
+            --no-live \
+            --no-assets \
+            --no-html \
+            --no-dashboard \
+            --no-mailer \
+            --binary-id
 ```
 
 5. Change directory to the project folder
