@@ -170,7 +170,7 @@ main article.markdown-body {
 	}
 
 	code:not(pre code) {
-		@apply bg-light-bg dark:bg-dark-subAlt p-1 mx-1 rounded-md font-mono text-sm shadow-ng;
+		@apply bg-light-bg dark:bg-dark-subAlt p-1 mx-1 rounded-md font-mono text-sm shadow-ng transition-colors duration-500;
 	}
 
 	li {
