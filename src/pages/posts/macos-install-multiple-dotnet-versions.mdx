@@ -1,0 +1,40 @@
+---
+description:
+public: true
+layout: ../../layouts/BlogPost.astro
+title: How to install multiple versions of .NET on macOS
+createdAt: 2025-01-24
+updatedAt: 01/24/2025
+tags:
+- macos
+- dotnet
+- csharp
+slug: macos-install-multiple-dotnet-versions
+---
+1. Add the Microsoft package feed to your system
+```bash
+brew tap isen-ng/dotnet-sdk-versions
+```
+2. Install the desired version of the .NET SDK
+```bash
+brew install --cask dotnet-sdk-6-0-400
+brew install --cask dotnet-sdk-7-0-400
+```
+3. Verify the installation
+```bash
+dotnet --list-sdks
+```
+
+This way you can use multiple versions of the .NET SDK in parallel.
+
+In your .NET code you can specify the desired version in the global.json file:
+```json
+{
+  "sdk": {
+    "version": "7.0.400"
+  }
+}
+```
+
+Resources:
+- https://stackoverflow.com/a/76719270
