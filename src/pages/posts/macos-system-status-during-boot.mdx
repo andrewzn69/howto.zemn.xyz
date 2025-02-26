@@ -1,0 +1,27 @@
+---
+description:
+public: true
+layout: ../../layouts/BlogPost.astro
+title: How to see system status during boot instead of loading bad on MacOS 
+createdAt: 02/26/2025
+updatedAt: 02/26/2025
+tags:
+- macos
+- mac
+- startup
+slug: macos-system-status-during-boot
+---
+1. If you want to see the system status during boot only temporarily, press <kbd class="cmd">⌘</kbd> + <kbd >T</kbd> during boot.
+
+2. If you want to see the system status during boot permanently, run the following command in the terminal:
+```bash
+sudo nvram boot-args="-v"
+```
+
+3. To revert back to the default behavior, run the following command in the terminal:
+```bash
+sudo nvram boot-args=
+```
+
+References:
+- https://apple.stackexchange.com/a/4235
