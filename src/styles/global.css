@@ -176,4 +176,14 @@ main article.markdown-body {
 	li {
 		@apply my-2;
 	}
+
+	kbd {
+		@apply inline-flex justify-center items-center py-1 px-2 bg-light-bg border border-[#939AA9] font-mono text-xs text-light-sub shadow-[0px_2px_0px_0px_#939AA9] dark:bg-dark-bg dark:border-dark-text dark:text-dark-text dark:shadow-[0px_2px_0px_0px_#D8DEE9] rounded-md transition-all duration-500;
+	}
+
+	kbd.cmd {
+		@apply inline-block text-[1.1em] align-middle -mt-[0.05em] mx-[0.05em];
+	}
+
+
 }
