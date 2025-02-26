@@ -1,7 +1,7 @@
 import { defineConfig, sharpImageService } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import robotsTxt from 'astro-robots-txt';
@@ -49,7 +49,7 @@ export default defineConfig({
 	image: {
 		service: sharpImageService(),
 	},
-	output: 'hybrid',
+	output: 'server',
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
