@@ -40,15 +40,15 @@ const {
 				<h1 class="text-3xl my-4 font-mplus">{title}</h1>
 
 				<div
-					class="flex items-center text-sm text-light-sub dark:text-dark-sub space-x-3"
+					class="flex items-center text-sm text-fg-dim space-x-3"
 				>
 					<span
-						class="flex justify-center w-[110px] py-1 bg-light-subAlt dark:bg-dark-subAlt rounded-md transition-colors duration-500"
+						class="flex justify-center w-[110px] py-1 bg-bg1 rounded-md transition-colors duration-500"
 					>
 						{createdAt && <FormattedDate date={new Date(createdAt)} />}
 					</span>
 					<div
-						class="flex justify-center items-center space-x-1 w-[110px] py-1 bg-light-subAlt dark:bg-dark-subAlt rounded-md transition-colors duration-500"
+						class="flex justify-center items-center space-x-1 w-[110px] py-1 bg-bg1 rounded-md transition-colors duration-500"
 					>
 						<Clock4 class="w-4" />
 						<span>{minutesRead}</span>
@@ -56,14 +56,14 @@ const {
 				</div>
 
 				<div>{description}</div>
-				<hr class="border-top border-dark-sub dark:border-dark-text my-4" />
+				<hr class="border-top border-bg5 my-4" />
 				<slot />
 				<div class="mt-6">
 					{
 						tags.map((tag) => (
 							<a
 								href={`/categories/${tag}`}
-								class="inline-flex justify-center text-sm font-medium shadow-sm !text-light-sub dark:!text-dark-sub hover:!text-light-bg dark:hover:!text-dark-bg bg-light-subAlt dark:bg-dark-subAlt hover:bg-light-text dark:hover:bg-dark-text focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2 hover:dark:!text-foreground transition-colors !duration-500"
+								class="inline-flex justify-center text-sm font-medium shadow-sm !text-fg-dim hover:!text-bg0 bg-bg1 hover:bg-fg focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2 transition-colors !duration-500"
 							>
 								<span class="tracking-wider">#</span>
 								<span>{tag}</span>

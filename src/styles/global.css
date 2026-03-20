@@ -7,41 +7,85 @@
 
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 	/* fonts */
 	--font-mplus: 'proxima-soft', 'Verdana', sans-serif;
 	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-	/* nord colors - light theme */
-	--color-light-bg: #ECEFF4;
-	--color-light-caret: #8FBCBB;
-	--color-light-main: #88C0D0;
-	--color-light-sub: #6A7791;
-	--color-light-subAlt: #D8DEE9;
-	--color-light-text: #8FBCBB;
-	--color-light-error: #BF616A;
-	--color-light-errorExtra: #793E44;
-
-	/* nord colors - dark theme */
-	--color-dark-bg: #242933;
-	--color-dark-caret: #eceff4;
-	--color-dark-main: #88c0d0;
-	--color-dark-sub: #929aaa;
-	--color-dark-subAlt: #2e3440;
-	--color-dark-text: #d8dee9;
-	--color-dark-error: #bf616a;
-	--color-dark-errorExtra: #793e44;
+	/* semantic colors */
+	--color-bg0: var(--bg0);
+	--color-bg1: var(--bg1);
+	--color-bg2: var(--bg2);
+	--color-bg3: var(--bg3);
+	--color-bg4: var(--bg4);
+	--color-bg5: var(--bg5);
+	--color-fg: var(--fg);
+	--color-fg-dim: var(--fg-dim);
+	--color-main: var(--main);
+	--color-caret: var(--caret);
+	--color-error: var(--error);
+	--color-errorExtra: var(--errorExtra);
 
 	/* accent colors */
-	--color-red: #BF616A;
-	--color-orange: #D08770;
-	--color-yellow: #EBCB8B;
-	--color-green: #A3BE8C;
-	--color-purple: #B48EAD;
-	--color-blue: #5E81AC;
+	--color-red: var(--red);
+	--color-orange: var(--orange);
+	--color-yellow: var(--yellow);
+	--color-green: var(--green);
+	--color-blue: var(--blue);
+	--color-purple: var(--purple);
 
 	/* shadows */
 	--shadow-ng: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+:root {
+	/* everforest light medium */
+	--bg0: #fdf6e3; /* main background */
+	--bg1: #f3ead3; /* secondary background, floating panels */
+	--bg2: #eae4ca; /* selection background */
+	--bg3: #e0d8c0; /* line number background */
+	--bg4: #d8cfb7; /* cursor line */
+	--bg5: #c9c09e; /* non-text, line dividers */
+	--fg: #5c6a72; /* primary text */
+	--fg-dim: #829181; /* comments, subtle text */
+	--main: #3A94C5;
+	--caret: #35A77C;
+	--error: #F85552;
+	--errorExtra: #CC3A38;
+
+	/* light accent colors */
+	--red: #f85552;
+	--orange: #f57d26;
+	--yellow: #dfa000;
+	--green: #8da101;
+	--blue: #3a94c5;
+	--purple: #df69ba;
+}
+
+.dark {
+	/* everforest dark hard */
+	--bg0: #272e33; /* main background */
+	--bg1: #2e383c; /* secondary background, floating panels */
+	--bg2: #374145; /* selection background */
+	--bg3: #414b50; /* line number background */
+	--bg4: #495156; /* cursor line */
+	--bg5: #4f5b58; /* non-text, line dividers */
+	--fg: #d3c6aa; /* primary text */
+	--fg-dim: #859289; /* comments, subtle text */
+	--main: #83C092;
+	--caret: #D3C6AA;
+	--error: #E67E80;
+	--errorExtra: #B94A4C;
+
+	/* dark accent colors */
+	--red: #E67E80;
+	--orange: #E69875;
+	--yellow: #DBBC7F;
+	--green: #A7C080;
+	--blue: #7FBBB3;
+	--purple: #D699B6;
 }
 
 body {
@@ -50,6 +94,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	overflow-wrap: break-word;
+}
+
+::selection {
+	background-color: var(--bg2);
 }
 
 .callout {
@@ -82,7 +130,7 @@ body {
 }
 
 .callout p {
-	@apply !my-2 text-light-sub dark:text-dark-text;
+	@apply !my-2 text-fg;
 }
 
 .ionicon {
@@ -127,7 +175,7 @@ main article.markdown-body {
 	}
 
 	a {
-		@apply underline underline-offset-2 hover:text-light-main dark:hover:text-dark-main decoration-light-main dark:decoration-dark-main transition-colors;
+		@apply underline underline-offset-2 hover:text-main decoration-main transition-colors;
 	}
 
 	figure {
@@ -139,7 +187,7 @@ main article.markdown-body {
 	}
 
 	code:not(pre code) {
-		@apply bg-light-bg dark:bg-dark-subAlt p-1 mx-1 rounded-md font-mono text-sm shadow-ng transition-colors duration-500;
+		@apply bg-bg0 p-1 mx-1 rounded-md font-mono text-sm shadow-ng transition-colors duration-500;
 	}
 
 	li {
@@ -147,7 +195,7 @@ main article.markdown-body {
 	}
 
 	kbd {
-		@apply inline-flex justify-center items-center py-1 px-2 bg-light-bg border border-[#939AA9] font-mono text-xs text-light-sub shadow-[0px_2px_0px_0px_#939AA9] dark:bg-dark-bg dark:border-dark-text dark:text-dark-text dark:shadow-[0px_2px_0px_0px_#D8DEE9] rounded-md transition-all duration-500;
+		@apply inline-flex justify-center items-center py-1 px-2 bg-bg0 border border-fg font-mono text-xs text-fg-dim shadow-[0px_2px_0px_0px] shadow-fg rounded-md transition-all duration-500;
 	}
 
 	kbd.cmd {
