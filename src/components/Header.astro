@@ -1,32 +1,26 @@
 ---
-import { IoLogoGithub } from 'react-icons/io5';
+import { IoHome, IoLogoRss } from 'react-icons/io5';
 import { HOMEPAGE_URL } from '../config';
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggleButton.tsx';
 import SocialsDropdown from './SocialsDropdown.tsx';
 ---
 
-<header class="fixed w-full p-2 z-20 backdrop-blur-md">
-	<div class="mx-auto max-w-3xl p-2">
-		<nav class="flex items-center gap-6 text-base">
-			<a href="/" class="group">
-				<h2 class="font-semibold tracking-tighter font-mplus text-lg">
-					andrewzn
-				</h2>
+<header class="fixed w-full py-1.5 z-20 backdrop-blur-md bg-bg0/80 border-b border-bg5">
+	<div class="mx-auto max-w-3xl px-8 py-1">
+		<nav class="flex items-center gap-2 text-base">
+			<a href="/" class="p-2 rounded-lg hover:bg-bg1 transition-colors">
+				<IoHome className="w-5 h-5" />
 			</a>
-			<div class="items-center gap-6 hidden md:flex font-mplus">
-				<HeaderLink href={HOMEPAGE_URL}> About </HeaderLink>
-				<HeaderLink
-					href="https://github.com/andrewzn69/howto.zemn.xyz"
-					target="_blank"
-				>
-					<IoLogoGithub />
-					Source
-				</HeaderLink>
-			</div>
 			<div class="flex-1"></div>
+			<a href="/blog" class="px-3 py-2 rounded-lg hover:bg-bg1 transition-colors font-mplus">
+				Blog
+			</a>
 			<SocialsDropdown client:visible />
 			<ThemeToggle client:load />
+			<a href="/rss.xml" class="p-2 rounded-lg hover:bg-bg1 transition-colors">
+				<IoLogoRss className="w-5 h-5" />
+			</a>
 		</nav>
 	</div>
 </header>
