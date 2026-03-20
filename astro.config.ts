@@ -1,6 +1,6 @@
 import { defineConfig, sharpImageService } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
@@ -19,6 +19,7 @@ const nordlight = ExpressiveCodeTheme.fromJSONString(jsoncString);
 export default defineConfig({
 	site: 'https://howto.zemn.xyz/',
 	trailingSlash: 'never',
+
 	integrations: [
 		expressiveCode({
 			defaultProps: {
@@ -40,19 +41,26 @@ export default defineConfig({
 		sitemap(),
 		react(),
 		mdx(),
-		tailwind(),
 		robotsTxt({ policy: [{ userAgent: '*', disallow: ['/404'] }] }),
 	],
+
 	markdown: {
 		remarkPlugins: [remarkDirective, remarkAside, remarkReadingTime],
 	},
+
 	image: {
 		service: sharpImageService(),
 	},
+
 	output: 'server',
+
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
 		},
 	}),
+
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });

@@ -5,9 +5,44 @@
  */
 @import url("https://use.typekit.net/atg0zvr.css");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+	/* fonts */
+	--font-mplus: 'proxima-soft', 'Verdana', sans-serif;
+	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+	/* nord colors - light theme */
+	--color-light-bg: #ECEFF4;
+	--color-light-caret: #8FBCBB;
+	--color-light-main: #88C0D0;
+	--color-light-sub: #6A7791;
+	--color-light-subAlt: #D8DEE9;
+	--color-light-text: #8FBCBB;
+	--color-light-error: #BF616A;
+	--color-light-errorExtra: #793E44;
+
+	/* nord colors - dark theme */
+	--color-dark-bg: #242933;
+	--color-dark-caret: #eceff4;
+	--color-dark-main: #88c0d0;
+	--color-dark-sub: #929aaa;
+	--color-dark-subAlt: #2e3440;
+	--color-dark-text: #d8dee9;
+	--color-dark-error: #bf616a;
+	--color-dark-errorExtra: #793e44;
+
+	/* accent colors */
+	--color-red: #BF616A;
+	--color-orange: #D08770;
+	--color-yellow: #EBCB8B;
+	--color-green: #A3BE8C;
+	--color-purple: #B48EAD;
+	--color-blue: #5E81AC;
+
+	/* shadows */
+	--shadow-ng: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
 
 body {
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
@@ -166,7 +201,7 @@ main article.markdown-body {
 	}
 
 	pre {
-		@apply scrollbar-thin transition-colors duration-500;
+		@apply transition-colors duration-500;
 	}
 
 	code:not(pre code) {
