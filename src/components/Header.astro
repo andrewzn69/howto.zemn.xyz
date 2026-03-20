@@ -2,7 +2,6 @@
 import { IoLogoGithub } from 'react-icons/io5';
 import { HOMEPAGE_URL } from '../config';
 import HeaderLink from './HeaderLink.astro';
-import SearchDialog from './SearchDialog.tsx';
 import ThemeToggle from './ThemeToggleButton.tsx';
 
 const allPosts = await Astro.glob('../pages/posts/*.mdx');
@@ -40,7 +39,6 @@ allPosts.map((post) => {
 				</HeaderLink>
 			</div>
 			<div class="flex-1"></div>
-			<SearchDialog client:load searchList={posts} />
 			<ThemeToggle client:visible />
 		</nav>
 	</div>
