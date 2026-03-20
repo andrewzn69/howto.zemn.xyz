@@ -12,9 +12,11 @@ import remarkAside from './src/lib/remark-aside.mjs';
 import remarkDirective from 'remark-directive';
 import fs from 'node:fs';
 
-// @expressive-code does not have nord-light theme
-const jsoncString = fs.readFileSync(new URL('./nord-light.json', import.meta.url), 'utf-8');
-const nordlight = ExpressiveCodeTheme.fromJSONString(jsoncString);
+const everforestDarkString = fs.readFileSync(new URL('./everforest-dark.json', import.meta.url), 'utf-8');
+const everforestLightString = fs.readFileSync(new URL('./everforest-light.json', import.meta.url), 'utf-8');
+
+const everforestDark = ExpressiveCodeTheme.fromJSONString(everforestDarkString);
+const everforestLight = ExpressiveCodeTheme.fromJSONString(everforestLightString);
 
 export default defineConfig({
 	site: 'https://howto.zemn.xyz/',
@@ -28,7 +30,7 @@ export default defineConfig({
 			},
 			themeCssSelector: (theme) => `.${theme.type}`,
 			plugins: [pluginLineNumbers()],
-			themes: ['nord', nordlight],
+			themes: [everforestDark, everforestLight],
 			styleOverrides: {
 				frames: {
 					frameBoxShadowCssValue: '0 4px 20px rgba(0,0,0, 0.1)',
