@@ -3,6 +3,7 @@ import { IoLogoGithub } from 'react-icons/io5';
 import { HOMEPAGE_URL } from '../config';
 import HeaderLink from './HeaderLink.astro';
 import ThemeToggle from './ThemeToggleButton.tsx';
+import SocialsDropdown from './SocialsDropdown.tsx';
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur-md">
@@ -24,6 +25,7 @@ import ThemeToggle from './ThemeToggleButton.tsx';
 				</HeaderLink>
 			</div>
 			<div class="flex-1"></div>
+			<SocialsDropdown client:visible />
 			<ThemeToggle client:load />
 		</nav>
 	</div>
