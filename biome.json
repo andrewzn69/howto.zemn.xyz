@@ -1,5 +1,8 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"html": {
+		"experimentalFullSupportEnabled": true
+	},
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": true,
@@ -37,21 +40,6 @@
 			}
 		}
 	},
-	"overrides": [
-		{
-			"includes": [
-				"*.astro"
-			],
-			"linter": {
-				"rules": {
-					"style": {
-						"useConst": "off",
-						"useImportType": "off"
-					}
-				}
-			}
-		}
-	],
 	"javascript": {
 		"globals": [
 			"Astro"
