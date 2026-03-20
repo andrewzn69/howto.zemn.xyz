@@ -37,24 +37,14 @@ export default function ThemeToggle() {
 	}, []);
 
 	return isMounted ? (
-		<div className='inline-flex items-center p-[1px] rounded-3xl bg-bg1'>
-			{themes.map((t) => {
-				const checked = t === theme;
-				return (
-					<button
-						type='button'
-						key={t}
-						className={`${
-							checked ? 'bg-bg0' : ''
-						} cursor-pointer rounded-3xl p-2`}
-						onClick={toggleTheme}
-						aria-label='Toggle theme'
-					>
-						{t === 'light' ? <IoSunny /> : <IoMoon />}
-					</button>
-				);
-			})}
-		</div>
+		<button
+			type='button'
+			className='p-2 rounded-lg hover:bg-bg1 transition-colors'
+			onClick={toggleTheme}
+			aria-label='Toggle theme'
+		>
+			{theme === 'light' ? <IoMoon className='w-5 h-5' /> : <IoSunny className='w-5 h-5' />}
+		</button>
 	) : (
 		<div />
 	);
