@@ -25,10 +25,6 @@
 	--color-bg5: var(--bg5);
 	--color-fg: var(--fg);
 	--color-fg-dim: var(--fg-dim);
-	--color-main: var(--main);
-	--color-caret: var(--caret);
-	--color-error: var(--error);
-	--color-errorExtra: var(--errorExtra);
 
 	/* accent colors */
 	--color-red: var(--red);
@@ -177,7 +173,7 @@ main article.markdown-body {
 	}
 
 	a {
-		@apply underline underline-offset-2 hover:text-main decoration-main transition-colors;
+		@apply underline underline-offset-2 hover:text-green decoration-green transition-colors;
 	}
 
 	figure {
