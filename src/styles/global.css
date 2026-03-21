@@ -3,7 +3,8 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
-@import url("https://use.typekit.net/atg0zvr.css");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=supreme@400,500,600&display=swap');
 
 @import "tailwindcss";
 
@@ -11,8 +12,9 @@
 
 @theme {
 	/* fonts */
-	--font-mplus: 'proxima-soft', 'Verdana', sans-serif;
+	--font-mplus: 'Nunito', sans-serif;
 	--font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+	--font-size-base: 1.25rem;
 
 	/* semantic colors */
 	--color-bg0: var(--bg0);
@@ -89,7 +91,7 @@
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
+	font-family: 'Supreme', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
