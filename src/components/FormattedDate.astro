@@ -1,6 +1,4 @@
 ---
-import { Calendar } from '@lucide/astro';
-
 interface Props {
 	date: Date;
 }
@@ -8,15 +6,12 @@ interface Props {
 const { date } = Astro.props;
 ---
 
-<div class="flex items-center space-x-1">
-	<Calendar className="w-4" />
-	<time datetime={date.toISOString()}>
-		{
-			date.toLocaleDateString("en-us", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})
-		}
-	</time>
-</div>
+<time datetime={date.toISOString()}>
+	{
+		date.toLocaleDateString("en-us", {
+			year: "numeric",
+			month: "2-digit",
+			day: "2-digit",
+		})
+	}
+</time>
