@@ -9,16 +9,16 @@ import SocialsDropdown from './SocialsDropdown.tsx';
 <header class="fixed w-full py-1.5 z-20 backdrop-blur-md bg-bg0/80 border-b border-bg5">
 	<div class="mx-auto max-w-4xl px-8 py-1">
 		<nav class="flex items-center gap-2 text-base">
-			<a href="/" class="p-2 rounded-lg hover:bg-bg1 transition-colors">
+			<a href="/" class="p-2 rounded-lg hover:bg-bg1">
 				<IoHome className="w-5 h-5" />
 			</a>
 			<div class="flex-1"></div>
-			<a href="/blog" class="px-3 py-2 rounded-lg hover:bg-bg1 transition-colors font-mplus">
+			<a href="/blog" class="px-3 py-2 rounded-lg hover:bg-bg1 font-mplus">
 				Blog
 			</a>
 			<SocialsDropdown client:visible />
 			<ThemeToggle client:load />
-			<a href="/rss.xml" class="p-2 rounded-lg hover:bg-bg1 transition-colors">
+			<a href="/rss.xml" class="p-2 rounded-lg hover:bg-bg1">
 				<IoLogoRss className="w-5 h-5" />
 			</a>
 		</nav>

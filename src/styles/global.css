@@ -10,6 +10,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+	* {
+		@apply transition-colors duration-500;
+	}
+}
+
 @theme {
 	/* fonts */
 	--font-mplus: 'Nunito', sans-serif;
@@ -173,19 +179,23 @@ main article.markdown-body {
 	}
 
 	a {
-		@apply underline underline-offset-2 hover:text-green decoration-green transition-colors;
+		@apply underline underline-offset-2 hover:text-green decoration-green;
 	}
 
 	figure {
 		@apply !my-6;
 	}
 
+	code:not(pre code) {
+		@apply bg-bg0 p-1 mx-1 rounded-md font-mono text-sm shadow-ng;
+	}
+
 	pre {
 		@apply transition-colors duration-500;
 	}
 
-	code:not(pre code) {
-		@apply bg-bg0 p-1 mx-1 rounded-md font-mono text-sm shadow-ng transition-colors duration-500;
+	pre * {
+		@apply transition-colors duration-500;
 	}
 
 	li {

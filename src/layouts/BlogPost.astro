@@ -1,5 +1,4 @@
 ---
-import { Clock4 } from '@lucide/astro';
 import BaseHead from '../components/BaseHead.astro';
 import Body from '../components/Body.astro';
 import Content from '../components/Content.astro';
@@ -23,7 +22,7 @@ export interface Props {
 }
 
 const {
-	content: { title, description, tags, createdAt },
+	content: { title, description, tags, createdAt, heroImage },
 	frontmatter: { minutesRead },
 } = Astro.props;
 ---
@@ -37,23 +36,32 @@ const {
 		<Header />
 		<main class="pt-[70px]">
 			<Content className="pt-6 markdown-body font-mplus">
-				<h1 class="text-3xl my-4 font-mplus">{title}</h1>
-
-				<div
-					class="flex items-center text-sm text-fg-dim space-x-3"
-				>
-					<span
-						class="flex justify-center w-[110px] py-1 bg-bg1 rounded-md transition-colors duration-500"
-					>
-						{createdAt && <FormattedDate date={new Date(createdAt)} />}
-					</span>
-					<div
-						class="flex justify-center items-center space-x-1 w-[110px] py-1 bg-bg1 rounded-md transition-colors duration-500"
-					>
-						<Clock4 class="w-4" />
-						<span>{minutesRead}</span>
-					</div>
+				<div class="mb-8 relative">
+					{
+						heroImage && (
+							<>
+								<img
+									class="w-full h-[280px] object-cover border border-bg5 rounded transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
+									src={heroImage.replace('-dark.png', '-light.png')}
+									alt=""
+								/>
+								<img
+									class="w-full h-[280px] object-cover border border-bg5 rounded transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
+									src={heroImage.replace('-light.png', '-dark.png')}
+									alt=""
+								/>
+							</>
+						)
+					}
 				</div>
+
+				<div class="flex items-center text-sm text-fg-dim gap-3 mb-4">
+					{createdAt && <FormattedDate date={new Date(createdAt)} />}
+					<div class="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
+					<span>{minutesRead}</span>
+				</div>
+
+				<h1 class="text-3xl my-4 font-mplus">{title}</h1>
 
 				<div>{description}</div>
 				<hr class="border-top border-bg5 my-4" />
@@ -63,7 +71,7 @@ const {
 						tags.map((tag) => (
 							<a
 								href={`/categories/${tag}`}
-								class="inline-flex justify-center text-sm font-medium shadow-sm !text-fg-dim hover:!text-bg0 bg-bg1 hover:bg-fg focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2 transition-colors !duration-500"
+								class="inline-flex justify-center text-sm font-medium shadow-sm !text-fg-dim hover:!text-bg0 bg-bg1 hover:bg-fg focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2"
 							>
 								<span class="tracking-wider">#</span>
 								<span>{tag}</span>

@@ -39,7 +39,7 @@ export default function ThemeToggle() {
 	return isMounted ? (
 		<button
 			type='button'
-			className='p-2 rounded-lg hover:bg-bg1 transition-colors'
+			className='p-2 rounded-lg hover:bg-bg1'
 			onClick={toggleTheme}
 			aria-label='Toggle theme'
 		>

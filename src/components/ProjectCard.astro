@@ -13,7 +13,7 @@ interface Props {
 const { name, description, topics, stars, forks, url } = Astro.props;
 ---
 
-<div class="border border-bg5 rounded p-6 hover:border-green transition-colors">
+<div class="border border-bg5 rounded p-6 hover:border-green">
 	<div class="flex flex-wrap gap-2 mb-3">
 		{topics.slice(0, 5).map((topic) => (
 			<span class="text-xs px-2 py-1 bg-bg1 text-green rounded">{topic}</span>
@@ -42,7 +42,7 @@ const { name, description, topics, stars, forks, url } = Astro.props;
 			class="group flex items-center gap-1 text-sm text-fg-dim"
 		>
 			Source
-			<IoArrowForward className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+			<IoArrowForward className="w-4 h-4 group-hover:translate-x-1" />
 		</a>
 	</div>
 </div>
