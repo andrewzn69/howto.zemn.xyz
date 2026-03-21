@@ -48,13 +48,22 @@ const posts = Object.values(postFiles)
 									<li class="border border-bg5 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full">
 										<a href={post.url} class="flex flex-col h-full">
 											{heroImageSrc && (
-												<Image
-													class="w-full h-[140px] object-cover"
-													src={heroImageSrc}
-													width={720}
-													height={140}
-													alt="Banner"
-												/>
+												<div class="relative">
+													<Image
+														class="w-full h-[140px] object-cover border-b border-bg5 transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
+														src={heroImageSrc.replace('-dark.png', '-light.png')}
+														width={720}
+														height={140}
+														alt="Banner"
+													/>
+													<Image
+														class="w-full h-[140px] object-cover border-b border-bg5 transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
+														src={heroImageSrc.replace('-light.png', '-dark.png')}
+														width={720}
+														height={140}
+														alt="Banner"
+													/>
+												</div>
 											)}
 											<div class="p-6 flex flex-col flex-grow">
 												<h3 class="text-xl font-bold font-mplus mb-3">
