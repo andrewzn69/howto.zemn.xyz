@@ -17,11 +17,11 @@ export default function SocialsDropdown() {
 	return (
 		<div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
 			<button
-				className="px-3 py-2 rounded-lg hover:bg-bg1 font-mplus flex items-center gap-1"
+				className="px-3 py-2 rounded-lg hover:bg-bg1 font-mplus flex items-center gap-1 duration-150"
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				Socials
-				<IoChevronDown className={`w-4 h-4 ${isOpen ? 'rotate-180' : ''}`} />
+				<IoChevronDown className={`w-4 h-4 transition-transform duration-150 ${isOpen ? 'rotate-180' : ''}`} />
 			</button>
 			{isOpen && (
 				<div className="absolute right-0 mt-2 w-48 bg-bg1 rounded-lg shadow-lg">
