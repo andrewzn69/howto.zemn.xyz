@@ -1,0 +1,39 @@
+---
+import { FEATURED_REPOS } from '../config';
+import ProjectCard from './ProjectCard.astro';
+import { fetchGitHubRepos } from '../lib/github-cache';
+import { IoArrowForward } from 'react-icons/io5';
+
+const repos = await fetchGitHubRepos(FEATURED_REPOS);
+---
+
+<section class="mb-16">
+	<h2 class="text-2xl font-mplus font-medium mb-2">Projects Showcase</h2>
+	<p class="mb-8 text-base text-fg-dim">
+		A selection of open-source projects I'm working on.
+	</p>
+
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+		{repos.map((repo) => (
+			<ProjectCard
+				name={repo.name}
+				description={repo.description}
+				topics={repo.topics}
+				stars={repo.stargazers_count}
+				forks={repo.forks_count}
+				url={repo.html_url}
+			/>
+		))}
+	</div>
+
+	<div class="flex justify-end mt-6">
+		<a
+			href="https://github.com/andrewzn69"
+			target="_blank"
+			class="group flex items-center gap-1 text-sm text-fg-dim"
+		>
+			View GitHub Profile
+			<IoArrowForward className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+		</a>
+	</div>
+</section>

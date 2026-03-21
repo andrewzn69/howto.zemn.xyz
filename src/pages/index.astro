@@ -7,6 +7,7 @@ import Content from '../components/Content.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Masthead from '../components/Masthead.astro';
+import ProjectsShowcase from '../components/ProjectsShowcase.astro';
 import { HOMEPAGE_URL, SITE_DESCRIPTION, SITE_TITLE } from '../config';
 import '../styles/global.css';
 import * as Icons from 'react-icons/si';
@@ -35,19 +36,8 @@ const posts = Object.values(postFiles).sort(
 		<main class="pt-[56px]">
 			<Masthead />
 			<Content>
-				<section>
-					<p class="font-mplus">
-						This is my personal knowledge base: Quick tips and tricks to
-						remember how to do things I repeat, so I can skip the search next
-						time.
-						<a
-							class="inline-flex items-center gap-1 indent-1 text-main"
-							href={HOMEPAGE_URL}
-							>Learn more about me <IoArrowForward className="inline" />
-						</a>
-					</p>
-				</section>
-				<section>
+				<ProjectsShowcase />
+				<section class="mb-16">
 					<h2 class="text-2xl font-mplus font-medium my-9 ">Recent Posts</h2>
 					<ul class="grid grid-cols-1 items-start md:grid-cols-1 gap-7">
 						{
