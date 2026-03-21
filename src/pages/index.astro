@@ -37,7 +37,8 @@ const posts = Object.values(postFiles)
 			<Content>
 				<ProjectsShowcase />
 				<section class="mb-16">
-					<h2 class="text-2xl font-mplus font-medium my-9">Recent Posts</h2>
+					<h2 class="text-2xl font-mplus font-medium mb-2">Recent Posts</h2>
+					<p class="mb-8 text-base text-fg-dim">I write about infrastructure automation, Kubernetes, and self-hosting.</p>
 					<ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
 						{
 							posts.map((post) => {
