@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import { IoArrowForward } from 'react-icons/io5';
+import { IoArrowForward, IoCalendarOutline, IoTimeOutline } from 'react-icons/io5';
 import BaseHead from '../components/BaseHead.astro';
 import Body from '../components/Body.astro';
 import Content from '../components/Content.astro';
@@ -78,10 +78,15 @@ const posts = Object.values(postFiles)
 													<hr class="border-bg5 mb-4" />
 													<div class="flex items-center text-sm text-fg-dim gap-3">
 														{post.frontmatter.createdAt && (
-															<FormattedDate date={new Date(post.frontmatter.createdAt)} />
+															<div class="flex items-center gap-1">
+																<IoCalendarOutline className="w-4 h-4" />
+																<FormattedDate date={new Date(post.frontmatter.createdAt)} />
+															</div>
 														)}
-														<div class="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
-														<span>{post.frontmatter.minutesRead || '5 min read'}</span>
+														<div class="flex items-center gap-1">
+															<IoTimeOutline className="w-4 h-4" />
+															<span>{post.frontmatter.minutesRead || '5 min read'}</span>
+														</div>
 													</div>
 												</div>
 											</div>
