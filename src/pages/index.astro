@@ -1,28 +1,14 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import { IoArrowForward, IoCalendarOutline, IoTimeOutline } from 'react-icons/io5';
 import BaseHead from '../components/BaseHead.astro';
 import Body from '../components/Body.astro';
 import Content from '../components/Content.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Masthead from '../components/Masthead.astro';
 import ProjectsShowcase from '../components/ProjectsShowcase.astro';
+import RecentlyPublished from '../components/RecentlyPublished.astro';
 import { HOMEPAGE_URL, SITE_DESCRIPTION, SITE_TITLE } from '../config';
 import '../styles/global.css';
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
-
-const postFiles = import.meta.glob<{
-	frontmatter: { createdAt: string; title: string; description?: string; heroImage?: string; tags?: string[]; minutesRead?: string };
-	url?: string;
-}>('./posts/*.mdx', { eager: true });
-
-const posts = Object.values(postFiles)
-	.sort((a, b) => new Date(b.frontmatter.createdAt).valueOf() - new Date(a.frontmatter.createdAt).valueOf())
-	.slice(0, 3);
 ---
 
 <!doctype html>
@@ -36,85 +22,7 @@ const posts = Object.values(postFiles)
 			<Masthead />
 			<Content>
 				<ProjectsShowcase />
-				<section class="mb-16">
-					<h2 class="text-2xl font-mplus font-medium mb-2">Recently Published</h2>
-					<p class="mb-8 text-base text-fg-dim">I write about infrastructure automation, Kubernetes, and self-hosting.</p>
-					<ul class="grid grid-cols-1 md:grid-cols-3 gap-6">
-						{
-							posts.map((post) => {
-								const heroImageAsset = post.frontmatter.heroImage && images[post.frontmatter.heroImage];
-								const heroImageSrc = heroImageAsset ? heroImageAsset() : post.frontmatter.heroImage;
-								return (
-									<li class="border border-bg5 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full">
-										<a href={post.url} class="flex flex-col h-full">
-											{heroImageSrc && (
-												<div class="relative">
-													<Image
-														class="w-full h-[140px] object-cover border-b border-bg5 transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
-														src={heroImageSrc.replace('-dark.png', '-light.png')}
-														width={720}
-														height={140}
-														alt="Banner"
-													/>
-													<Image
-														class="w-full h-[140px] object-cover border-b border-bg5 transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
-														src={heroImageSrc.replace('-light.png', '-dark.png')}
-														width={720}
-														height={140}
-														alt="Banner"
-													/>
-												</div>
-											)}
-											<div class="p-6 flex flex-col flex-grow">
-												<h3 class="text-xl font-bold font-mplus mb-3">
-													{post.frontmatter.title}
-												</h3>
-												{post.frontmatter.tags && (
-													<div class="flex flex-wrap gap-2 mb-3">
-														{post.frontmatter.tags.slice(0, 3).map((tag) => (
-															<span class="text-xs px-2 py-1 bg-bg1 text-green rounded">
-																#{tag}
-															</span>
-														))}
-													</div>
-												)}
-												{post.frontmatter.description && (
-													<p class="text-sm text-fg-dim mb-4 line-clamp-2">
-														{post.frontmatter.description}
-													</p>
-												)}
-												<div class="mt-auto">
-													<hr class="border-bg5 mb-4" />
-													<div class="flex items-center text-sm text-fg-dim gap-3">
-														{post.frontmatter.createdAt && (
-															<div class="flex items-center gap-1">
-																<IoCalendarOutline className="w-4 h-4" />
-																<FormattedDate date={new Date(post.frontmatter.createdAt)} />
-															</div>
-														)}
-														<div class="flex items-center gap-1">
-															<IoTimeOutline className="w-4 h-4" />
-															<span>{post.frontmatter.minutesRead || '5 min read'}</span>
-														</div>
-													</div>
-												</div>
-											</div>
-										</a>
-									</li>
-								);
-							})
-						}
-					</ul>
-					<div class="flex justify-end mt-6">
-						<a
-							href="/blog"
-							class="group flex items-center gap-1 text-sm text-fg-dim"
-						>
-							View all posts
-							<IoArrowForward className="w-4 h-4 group-hover:translate-x-1" />
-						</a>
-					</div>
-				</section>
+				<RecentlyPublished />
 			</Content>
 		</main>
 		<Footer />
