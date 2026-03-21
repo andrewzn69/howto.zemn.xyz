@@ -13,7 +13,7 @@ interface Props {
 const { name, description, topics, stars, forks, url } = Astro.props;
 ---
 
-<div class="border border-bg5 rounded p-6 hover:border-green">
+<div class="border border-bg5 rounded p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-green transition-all duration-200">
 	<div class="flex flex-wrap gap-2 mb-3">
 		{topics.slice(0, 5).map((topic) => (
 			<span class="text-xs px-2 py-1 bg-bg1 text-green rounded">{topic}</span>
