@@ -1,40 +1,53 @@
 ---
 import { IoLogoGithub, IoLogoLinkedin, IoMail } from 'react-icons/io5';
+import { AUTHOR_NAME, AUTHOR_TITLE, AUTHOR_BIO } from '@/config';
+
+interface Props {
+	title?: string;
+	subtitle?: string;
+	description?: string;
+	showSocials?: boolean;
+}
+
+const {
+	title = AUTHOR_NAME,
+	subtitle = AUTHOR_TITLE,
+	description = AUTHOR_BIO,
+	showSocials = true,
+} = Astro.props;
 ---
 
 <section class="relative mb-16 pt-16">
 	<div class="z-10 max-w-4xl mx-auto px-8">
-		<h1 class="text-4xl md:text-6xl font-mplus font-bold mb-3 m-0 -ml-1">Ondřej Zeman</h1>
-		<p class="text-3xl md:text-5xl font-mplus font-bold text-fg-dim mb-6 m-0">DevOps Engineer</p>
-		<p class="text-base max-w-2xl mb-4 leading-relaxed">
-			High school graduate starting university soon. Former frontend developer who transitioned to DevOps
-			after discovering a passion for infrastructure automation. I run an extensive homelab with Kubernetes,
-			Terraform, and self-hosted services, while continuously learning AWS and modern DevOps practices.
-		</p>
-		<div class="flex gap-2 -ml-1">
-			<a
-				href="https://github.com/andrewzn69"
-				target="_blank"
-				class="p-2 rounded hover:bg-bg1 duration-150"
-				aria-label="GitHub"
-			>
-				<IoLogoGithub className="w-5 h-5" />
-			</a>
-			<a
-				href="https://linkedin.com/in/andrewzn"
-				target="_blank"
-				class="p-2 rounded hover:bg-bg1 duration-150"
-				aria-label="LinkedIn"
-			>
-				<IoLogoLinkedin className="w-5 h-5" />
-			</a>
-			<a
-				href="mailto:contact@zemn.xyz"
-				class="p-2 rounded hover:bg-bg1 duration-150"
-				aria-label="Email"
-			>
-				<IoMail className="w-5 h-5" />
-			</a>
-		</div>
+		<h1 class="text-4xl md:text-6xl font-mplus font-bold mb-3 m-0 -ml-1">{title}</h1>
+		<p class="text-3xl md:text-5xl font-mplus font-bold text-fg-dim mb-6 m-0">{subtitle}</p>
+		<p class="text-base max-w-2xl mb-4 leading-relaxed">{description}</p>
+		{showSocials && (
+			<div class="flex gap-2 -ml-1">
+				<a
+					href="https://github.com/andrewzn69"
+					target="_blank"
+					class="p-2 rounded hover:bg-bg1 duration-150"
+					aria-label="GitHub"
+				>
+					<IoLogoGithub className="w-5 h-5" />
+				</a>
+				<a
+					href="https://linkedin.com/in/andrewzn"
+					target="_blank"
+					class="p-2 rounded hover:bg-bg1 duration-150"
+					aria-label="LinkedIn"
+				>
+					<IoLogoLinkedin className="w-5 h-5" />
+				</a>
+				<a
+					href="mailto:contact@zemn.xyz"
+					class="p-2 rounded hover:bg-bg1 duration-150"
+					aria-label="Email"
+				>
+					<IoMail className="w-5 h-5" />
+				</a>
+			</div>
+		)}
 	</div>
 </section>
