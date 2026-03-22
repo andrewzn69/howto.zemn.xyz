@@ -21,7 +21,7 @@ const {
 	<div class="z-10 max-w-4xl mx-auto px-8">
 		<h1 class="text-4xl md:text-6xl font-mplus font-bold mb-3 m-0 -ml-1">{title}</h1>
 		<p class="text-3xl md:text-5xl font-mplus font-bold text-fg-dim mb-6 m-0">{subtitle}</p>
-		<p class="text-base max-w-2xl mb-4 leading-relaxed">{description}</p>
+		{description && <p class="text-base max-w-2xl mb-4 leading-relaxed">{description}</p>}
 		{showSocials && (
 			<div class="flex gap-2 -ml-1">
 				<a
