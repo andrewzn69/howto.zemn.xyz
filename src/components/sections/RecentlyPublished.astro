@@ -29,7 +29,7 @@ const postsWithMeta = await Promise.all(
 				const heroImageAsset = post.data.heroImage && images[post.data.heroImage];
 				const heroImageSrc = heroImageAsset ? heroImageAsset() : post.data.heroImage;
 				return (
-					<li class="border border-bg5 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full transition-shadow duration-150">
+					<li class="border border-bg5 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full [transition:box-shadow_150ms,border-color_500ms]">
 						<a href={`/blog/${post.id}`} class="flex flex-col h-full">
 							{heroImageSrc && (
 								<div class="relative">
