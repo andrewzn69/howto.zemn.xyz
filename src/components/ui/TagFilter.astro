@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+	activeTag?: string;
+}
+
+const { activeTag } = Astro.props;
+
+const allPosts = await getCollection('blog');
+const sorted = allPosts.sort((a, b) => new Date(b.data.createdAt).valueOf() - new Date(a.data.createdAt).valueOf());
+
+const seenTags = new Set<string>();
+const recentTags: string[] = [];
+for (const post of sorted) {
+	for (const tag of post.data.tags ?? []) {
+		if (!seenTags.has(tag)) {
+			seenTags.add(tag);
+			recentTags.push(tag);
+			if (recentTags.length === 8) break;
+		}
+	}
+	if (recentTags.length === 8) break;
+}
+---
+
+<div class="flex flex-wrap gap-2 mt-6">
+	{recentTags.map((tag) => (
+		<a
+			href={`/blog/${tag}`}
+			class={`px-3 py-1 rounded text-sm font-medium border transition-colors duration-150 ${
+				activeTag === tag
+					? 'bg-green text-bg0 border-green'
+					: 'bg-bg1 text-fg-dim border-bg5 hover:border-green hover:text-fg'
+			}`}
+		>
+			{tag}
+		</a>
+	))}
+</div>
