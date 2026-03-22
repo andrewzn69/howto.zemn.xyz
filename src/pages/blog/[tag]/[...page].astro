@@ -1,0 +1,75 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import Head from '@/components/layout/Head.astro';
+import Body from '@/components/layout/Body.astro';
+import Container from '@/components/layout/Container.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/header/Header.astro';
+import Hero from '@/components/sections/Hero.astro';
+import SearchModal from '@/components/ui/SearchModal.tsx';
+import TagFilter from '@/components/ui/TagFilter.astro';
+import PostList from '@/components/ui/PostList.astro';
+import Pagination from '@/components/ui/Pagination.astro';
+import { SITE_TITLE } from '@/config';
+
+export async function getStaticPaths() {
+	const PAGE_SIZE = 7;
+	const allPosts = await getCollection('blog');
+	const tags = [...new Set(allPosts.flatMap((post) => post.data.tags ?? []))];
+
+	return tags.flatMap((tag) => {
+		const filtered = allPosts
+			.filter((post) => post.data.tags?.includes(tag))
+			.sort((a, b) => new Date(b.data.createdAt).valueOf() - new Date(a.data.createdAt).valueOf());
+		const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+
+		return [
+			{ params: { tag, page: undefined } },
+			...Array.from({ length: totalPages - 1 }, (_, i) => ({
+				params: { tag, page: String(i + 2) },
+			})),
+		];
+	});
+}
+
+const PAGE_SIZE = 7;
+const { tag } = Astro.params;
+
+const allPosts = await getCollection('blog');
+const filtered = allPosts
+	.filter((post) => post.data.tags?.includes(tag))
+	.sort((a, b) => new Date(b.data.createdAt).valueOf() - new Date(a.data.createdAt).valueOf());
+
+const currentPage = Astro.params.page ? parseInt(Astro.params.page) : 1;
+const lastPage = Math.ceil(filtered.length / PAGE_SIZE);
+const pagePosts = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+const postsWithMeta = await Promise.all(
+	pagePosts.map(async (post) => {
+		const { remarkPluginFrontmatter } = await render(post);
+		return { entry: post, minutesRead: remarkPluginFrontmatter.minutesRead };
+	})
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<Head title={`${tag} / Blog / ${SITE_TITLE}`} description={`Posts tagged with ${tag}`} />
+	</head>
+	<Body>
+		<Header />
+		<main class="pt-[56px]">
+			<Hero title="Blog Posts" subtitle="Explore software-related articles" description="" showSocials={false} />
+			<Container>
+				<SearchModal client:load />
+				<TagFilter activeTag={tag} />
+				<PostList posts={postsWithMeta} />
+				<Pagination currentPage={currentPage} lastPage={lastPage} basePath={`/blog/${tag}`} />
+			</Container>
+		</main>
+		<Footer />
+	</Body>
+</html>
