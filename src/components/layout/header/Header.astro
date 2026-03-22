@@ -6,11 +6,11 @@ import ThemeToggle from '@/components/layout/header/ThemeToggleButton.tsx';
 import SocialsDropdown from '@/components/layout/header/SocialsDropdown.tsx';
 ---
 
-<header class="fixed w-full py-1.5 z-20 backdrop-blur-md bg-bg0/80 border-b border-bg5">
-	<div class="mx-auto max-w-4xl px-8 py-1">
-		<nav class="flex items-center gap-2 text-base">
+<header class="fixed w-full py-1 z-20 backdrop-blur-md bg-bg0/80 border-b border-bg5">
+	<div class="mx-auto max-w-4xl px-8 py-0.5">
+		<nav class="flex items-center gap-2 text-sm">
 			<a href="/" class="p-2 rounded-lg hover:bg-bg1 duration-150">
-				<IoHome className="w-5 h-5" />
+				<IoHome className="w-4 h-4" />
 			</a>
 			<div class="flex-1"></div>
 			<a href="/blog" class="px-3 py-2 rounded-lg hover:bg-bg1 font-mplus duration-150">
@@ -19,7 +19,7 @@ import SocialsDropdown from '@/components/layout/header/SocialsDropdown.tsx';
 			<SocialsDropdown client:visible />
 			<ThemeToggle client:load />
 			<a href="/rss.xml" class="p-2 rounded-lg hover:bg-bg1 duration-150">
-				<IoLogoRss className="w-5 h-5" />
+				<IoLogoRss className="w-4 h-4" />
 			</a>
 		</nav>
 	</div>
