@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import { IoArrowForward, IoCalendarOutline, IoTimeOutline } from 'react-icons/io5';
-import FormattedDate from './FormattedDate.astro';
+import FormattedDate from '@/components/ui/FormattedDate.astro';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
 

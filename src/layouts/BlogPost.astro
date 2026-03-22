@@ -1,11 +1,11 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Body from '../components/Body.astro';
-import Content from '../components/Content.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import { SITE_TITLE } from '../config';
+import Head from '@/components/layout/Head.astro';
+import Body from '@/components/layout/Body.astro';
+import Container from '@/components/layout/Container.astro';
+import Footer from '@/components/layout/Footer.astro';
+import FormattedDate from '@/components/ui/FormattedDate.astro';
+import Header from '@/components/layout/header/Header.astro';
+import { SITE_TITLE } from '@/config';
 
 export interface Props {
 	post: {
@@ -24,13 +24,13 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 
 <html lang="en">
 	<head>
-		<BaseHead title={title + ` / ${SITE_TITLE}`} description={description} />
+		<Head title={title + ` / ${SITE_TITLE}`} description={description} />
 	</head>
 
 	<Body>
 		<Header />
 		<main class="pt-[70px]">
-			<Content className="pt-6 markdown-body font-mplus">
+			<Container className="pt-6 markdown-body font-mplus">
 				<div class="mb-8 relative">
 					{
 						heroImage && (
@@ -65,7 +65,7 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 					{
 						tags.map((tag) => (
 							<a
-								href={`/categories/${tag}`}
+								href={`/blog/${tag}`}
 								class="inline-flex justify-center text-sm font-medium shadow-sm !text-fg-dim hover:!text-bg0 bg-bg1 hover:bg-fg focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2"
 							>
 								<span class="tracking-wider">#</span>
@@ -74,7 +74,7 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 						))
 					}
 				</div>
-			</Content>
+			</Container>
 		</main>
 	</Body>
 	<Footer />

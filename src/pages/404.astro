@@ -1,24 +1,24 @@
 ---
-import { IoArrowForward, IoChevronForward } from 'react-icons/io5';
-import BaseHead from '../components/BaseHead.astro';
-import Body from '../components/Body.astro';
-import Content from '../components/Content.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Masthead from '../components/Masthead.astro';
-import { HOMEPAGE_URL, SITE_DESCRIPTION, SITE_TITLE } from '../config';
+import { IoChevronForward } from 'react-icons/io5';
+import Head from '@/components/layout/Head.astro';
+import Body from '@/components/layout/Body.astro';
+import Container from '@/components/layout/Container.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Header from '@/components/layout/header/Header.astro';
+import Hero from '@/components/sections/Hero.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '@/config';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<Body>
-		<Header title={SITE_TITLE} />
+		<Header />
 		<main class="pt-[56px]">
-			<Masthead />
-			<Content>
+			<Hero />
+			<Container>
 				<section>
 					<h1 class="text-3xl text-center font-mplus mt-12 mb-8">
 						Oops, not found
@@ -31,7 +31,7 @@ import { HOMEPAGE_URL, SITE_DESCRIPTION, SITE_TITLE } from '../config';
 						</a>
 					</div>
 				</section>
-			</Content>
+			</Container>
 		</main>
 		<Footer />
 	</Body>

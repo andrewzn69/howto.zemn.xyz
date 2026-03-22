@@ -1,7 +1,7 @@
 ---
-import { FEATURED_REPOS } from '../config';
-import ProjectCard from './ProjectCard.astro';
-import { fetchGitHubRepos } from '../lib/github-cache';
+import { FEATURED_REPOS } from '@/config';
+import ProjectCard from '@/components/sections/projects/ProjectCard.astro';
+import { fetchGitHubRepos } from '@/lib/github-cache';
 import { IoArrowForward } from 'react-icons/io5';
 
 const repos = await fetchGitHubRepos(FEATURED_REPOS);
