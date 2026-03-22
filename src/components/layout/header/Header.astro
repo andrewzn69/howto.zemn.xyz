@@ -2,7 +2,7 @@
 import { IoHome, IoLogoRss } from 'react-icons/io5';
 import { HOMEPAGE_URL } from '@/config';
 import HeaderLink from '@/components/layout/header/HeaderLink.astro';
-import ThemeToggle from '@/components/layout/header/ThemeToggleButton.tsx';
+import ThemeToggle from '@/components/layout/header/ThemeToggleButton.astro';
 import SocialsDropdown from '@/components/layout/header/SocialsDropdown.tsx';
 ---
 
@@ -17,7 +17,7 @@ import SocialsDropdown from '@/components/layout/header/SocialsDropdown.tsx';
 				Blog
 			</a>
 			<SocialsDropdown client:visible />
-			<ThemeToggle client:load />
+			<ThemeToggle />
 			<a href="/rss.xml" class="p-2 rounded-lg hover:bg-bg1 duration-150">
 				<IoLogoRss className="w-4 h-4" />
 			</a>
