@@ -23,6 +23,11 @@ for (const post of sorted) {
 	}
 	if (recentTags.length === 8) break;
 }
+
+if (activeTag && !recentTags.includes(activeTag)) {
+	recentTags.unshift(activeTag);
+	recentTags.pop();
+}
 ---
 
 <div class="flex flex-wrap gap-2 mt-6">
