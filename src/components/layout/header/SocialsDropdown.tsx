@@ -21,7 +21,7 @@ export default function SocialsDropdown() {
 				onClick={() => setIsOpen(!isOpen)}
 			>
 				Socials
-				<IoChevronDown className={`w-4 h-4 transition-transform duration-150 ${isOpen ? 'rotate-180' : ''}`} />
+				<IoChevronDown className={`w-3 h-3 transition-transform duration-150 ${isOpen ? 'rotate-180' : ''}`} />
 			</button>
 			{isOpen && (
 				<div className="absolute right-0 mt-2 w-48 bg-bg1 rounded-lg shadow-lg">
