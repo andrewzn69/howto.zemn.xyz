@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '@/components/ui/FormattedDate.astro';
+
+interface Props {
+	posts: { entry: CollectionEntry<'blog'>; minutesRead: string }[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="mt-6 md:mt-10 divide-y divide-bg5 md:divide-y-0">
+	{posts.map(({ entry, minutesRead }) => (
+		<li>
+			<a href={`/blog/${entry.id}`} class="flex flex-col md:flex-row md:items-center py-5 md:py-3 gap-1 md:gap-4 group">
+				<div class="flex items-center gap-2 text-fg-dim text-sm md:hidden">
+					<FormattedDate date={new Date(entry.data.createdAt)} />
+					<div class="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
+					{minutesRead || '5 min read'}
+				</div>
+				<span class="font-medium min-w-0 group-hover:text-green transition-colors duration-150">{entry.data.title}</span>
+				<span class="hidden md:block flex-1 border-b border-bg5"></span>
+				<div class="hidden md:flex items-center gap-2 text-fg-dim text-sm shrink-0">
+					<FormattedDate date={new Date(entry.data.createdAt)} />
+					<div class="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
+					{minutesRead || '5 min read'}
+				</div>
+			</a>
+		</li>
+	))}
+</ul>
