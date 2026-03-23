@@ -80,7 +80,7 @@ export default function Eye() {
 
 	return (
 		<div className="flex items-center justify-center pt-24 pb-16">
-			<pre ref={eyeRef} className="leading-none text-fg text-sm font-mono">
+			<pre ref={eyeRef} className="leading-none text-fg text-[0.6rem] md:text-sm font-mono">
 				{eye.map((line, i) => (
 					<div key={`eye-line-${i}-${line.slice(0, 10)}`} className='whitespace-pre'>
 						{line.split('').map((char, j) => {
