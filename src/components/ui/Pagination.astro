@@ -17,20 +17,20 @@ function pageUrl(page: number) {
 
 <nav class="flex items-center gap-3 mt-10 text-sm text-fg-dim">
 	{currentPage > 1
-		? <a href={pageUrl(1)} class="flex hover:text-fg transition-colors duration-150"><IoChevronBack className="w-4 h-4 -mr-2.5" /><IoChevronBack className="w-4 h-4" /></a>
+		? <a href={pageUrl(1)} class="flex hover:text-fg [transition:color_150ms] [&_*]:[transition:fill_150ms]"><IoChevronBack className="w-4 h-4 -mr-2.5" /><IoChevronBack className="w-4 h-4" /></a>
 		: <span class="flex opacity-30 cursor-not-allowed"><IoChevronBack className="w-4 h-4 -mr-2.5" /><IoChevronBack className="w-4 h-4" /></span>
 	}
 	{currentPage > 1
-		? <a href={pageUrl(currentPage - 1)} class="hover:text-fg transition-colors duration-150"><IoChevronBack className="w-4 h-4" /></a>
+		? <a href={pageUrl(currentPage - 1)} class="hover:text-fg [transition:color_150ms] [&_*]:[transition:fill_150ms]"><IoChevronBack className="w-4 h-4" /></a>
 		: <span class="opacity-30 cursor-not-allowed"><IoChevronBack className="w-4 h-4" /></span>
 	}
 	<span class="mx-2 text-fg">{currentPage} of {lastPage}</span>
 	{currentPage < lastPage
-		? <a href={pageUrl(currentPage + 1)} class="hover:text-fg transition-colors duration-150"><IoChevronForward className="w-4 h-4" /></a>
+		? <a href={pageUrl(currentPage + 1)} class="hover:text-fg [transition:color_150ms] [&_*]:[transition:fill_150ms]"><IoChevronForward className="w-4 h-4" /></a>
 		: <span class="opacity-30 cursor-not-allowed"><IoChevronForward className="w-4 h-4" /></span>
 	}
 	{currentPage < lastPage
-		? <a href={pageUrl(lastPage)} class="flex hover:text-fg transition-colors duration-150"><IoChevronForward className="w-4 h-4 -mr-2.5" /><IoChevronForward className="w-4 h-4" /></a>
+		? <a href={pageUrl(lastPage)} class="flex hover:text-fg [transition:color_150ms] [&_*]:[transition:fill_150ms]"><IoChevronForward className="w-4 h-4 -mr-2.5" /><IoChevronForward className="w-4 h-4" /></a>
 		: <span class="flex opacity-30 cursor-not-allowed"><IoChevronForward className="w-4 h-4 -mr-2.5" /><IoChevronForward className="w-4 h-4" /></span>
 	}
 </nav>
