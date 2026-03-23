@@ -191,7 +191,7 @@ main article.markdown-body {
 	}
 
 	pre {
-		@apply transition-colors duration-500;
+		@apply transition-colors duration-500 border border-bg2 rounded;
 	}
 
 	pre * {
