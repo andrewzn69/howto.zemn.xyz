@@ -14,6 +14,4 @@ export const FEATURED_REPOS = [
 	'andrewzn69/kubernetes',
 	'andrewzn69/howto.zemn.xyz',
 	'andrewzn69/helm-common',
-	'andrewzn69/nixos',
-	'andrewzn69/dotfiles',
 ];
