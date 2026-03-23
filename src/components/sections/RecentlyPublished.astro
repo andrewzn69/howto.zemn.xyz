@@ -28,21 +28,22 @@ const postsWithMeta = await Promise.all(
 			postsWithMeta.map(({ post, minutesRead }) => {
 				const heroImageAsset = post.data.heroImage && images[post.data.heroImage];
 				const heroImageSrc = heroImageAsset ? heroImageAsset() : post.data.heroImage;
+				const heroImageStr = typeof heroImageSrc === 'string' ? heroImageSrc : '';
 				return (
 					<li class="border border-bg2 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full [transition:box-shadow_150ms,border-color_500ms]">
 						<a href={`/blog/${post.id}`} class="flex flex-col h-full">
-							{heroImageSrc && (
+							{heroImageStr && (
 								<div class="relative">
 									<Image
 										class="w-full h-[140px] object-cover border-b border-bg2 transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
-										src={heroImageSrc.replace('-dark.png', '-light.png')}
+										src={heroImageStr.replace('-dark.png', '-light.png')}
 										width={720}
 										height={140}
 										alt="Banner"
 									/>
 									<Image
 										class="w-full h-[140px] object-cover border-b border-bg2 transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
-										src={heroImageSrc.replace('-light.png', '-dark.png')}
+										src={heroImageStr.replace('-light.png', '-dark.png')}
 										width={720}
 										height={140}
 										alt="Banner"

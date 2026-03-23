@@ -3,7 +3,7 @@ import { IoLogoGithub, IoLogoLinkedin, IoMail, IoChevronDown } from 'react-icons
 
 export default function SocialsDropdown() {
 	const [isOpen, setIsOpen] = useState(false);
-	const timeoutRef = useRef<NodeJS.Timeout>();
+	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const handleMouseEnter = () => {
 		if (timeoutRef.current) clearTimeout(timeoutRef.current);
