@@ -6,11 +6,59 @@ import ThemeToggle from '@/components/layout/header/ThemeToggleButton.astro';
 import SocialsDropdown from '@/components/layout/header/SocialsDropdown.tsx';
 ---
 
+<style>
+	.logo-gradient {
+		background: linear-gradient(135deg, var(--green) 0%, var(--green) 25%, var(--blue) 40%, var(--yellow) 55%, var(--green) 70%, var(--green) 100%);
+		background-size: 500% 100%;
+		background-position: 100% 50%;
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.logo-gradient.animating {
+		animation: gradient-slide 1500ms linear forwards;
+	}
+
+	.logo-gradient.completed {
+		background-position: 0% 50%;
+	}
+
+	@keyframes gradient-slide {
+		to {
+			background-position: 0% 50%;
+		}
+	}
+</style>
+
+<script>
+	const logoLink = document.querySelector('.logo-link');
+	const gradient = logoLink?.querySelector('.logo-gradient');
+
+	logoLink?.addEventListener('mouseenter', function() {
+		if (gradient && !gradient.classList.contains('animating') && !gradient.classList.contains('completed')) {
+			gradient.classList.add('animating');
+		}
+	});
+
+	gradient?.addEventListener('animationend', function() {
+		gradient.classList.remove('animating');
+		gradient.classList.add('completed');
+
+		// reset after a short delay when animation completes
+		setTimeout(() => {
+			if (gradient.classList.contains('completed')) {
+				gradient.classList.remove('completed');
+			}
+		}, 100);
+	});
+</script>
+
 <header class="fixed w-full py-1 z-20 backdrop-blur-md bg-bg0/80 border-b border-bg5">
 	<div class="mx-auto max-w-4xl px-8 py-0.5">
 		<nav class="flex items-center gap-2 text-sm">
-			<a href="/" class="p-2 rounded-lg hover:bg-bg1 duration-150">
-				<IoHome className="w-4 h-4" />
+			<a href="/" class="logo-link px-3 py-2 font-mplus font-bold text-base">
+				zemn<span class="logo-gradient">.xyz</span>
 			</a>
 			<div class="flex-1"></div>
 			<a href="/blog" class="px-3 py-2 rounded-lg hover:bg-bg1 font-mplus duration-150">
