@@ -1,0 +1,29 @@
+---
+description: ""
+title: How to drop ICMP packets with firewalld
+createdAt: 05/30/2024
+updatedAt: 05/30/2024
+tags:
+- firewalld
+- linux
+- cli
+slug: firewalld-drop-icmp
+icon: SiLinux
+heroImage: /hero/hero-light.png
+---
+1. Drop all ICMP
+
+```bash
+firewall-cmd --set-target=DROP --zone=public --permanent
+firewall-cmd --zone=public --remove-icmp-block={echo-request,echo-reply,timestamp-request,timestamp-reply} --permanent
+```
+
+2. Reload the firewall
+
+```bash
+firewall-cmd --reload
+```
+
+References:
+
+- [https://unix.stackexchange.com/a/585031](https://unix.stackexchange.com/a/585031)

@@ -1,0 +1,35 @@
+---
+description: ""
+public: true
+title: How to change Java version on Arch Linux
+createdAt: 05/07/2024
+updatedAt: 05/07/2024
+tags:
+- arch linux
+- java
+- cli
+slug: java-version-arch-linux
+icon: SiArchlinux
+heroImage: /hero/hero-light.png
+---
+
+1. List all installed java versions
+
+```bash
+archlinux-java status
+```
+
+2. (Optional) Install a new java version
+
+```bash
+sudo pacman -S jdk-openjdk[version]
+```
+
+3. Set the default java version
+
+```bash
+sudo archlinux-java set java-[version]-openjdk
+```
+
+References:
+- https://wiki.archlinux.org/title/Java

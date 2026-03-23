@@ -1,0 +1,20 @@
+---
+description: ""
+public: true
+title: 'How to recursively remove files with a specific extension in bash'
+createdAt: 11/12/2023
+updatedAt: 11/12/2023
+tags:
+- bash
+- linux
+- cli
+slug:  bash-recursively-remove-files
+icon: SiGnubash
+heroImage: /hero/hero-light.png
+---
+
+```bash
+#!/bin/bash
+
+find . -type f -name "*.[fileextension]" -exec rm {} \;
+```

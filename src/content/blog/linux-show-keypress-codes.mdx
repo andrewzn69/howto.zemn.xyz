@@ -1,0 +1,30 @@
+---
+description: ""
+public: true
+title: How to see keypress codes in Linux
+createdAt: 12/14/2023
+updatedAt: 12/14/2023
+tags:
+- linux
+- x11
+- wayland
+slug: linux-show-keypress-codes
+icon: SiLinux
+heroImage: /hero/hero-light.png
+---
+
+1. X11/Xorg
+
+```bash
+xev
+```
+
+2. Wayland
+
+```bash
+wev
+```
+
+:::note
+`wev` is more useful on wayland, because you can also see the keycodes
+:::

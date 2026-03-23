@@ -1,0 +1,31 @@
+---
+description: ""
+public: true
+title: How to scan for open port with nmap
+createdAt: 12/06/2023
+updatedAt: 12/06/2023
+tags:
+- nmap
+- cli
+slug: nmap-scan-for-open-port
+heroImage: /hero/hero-light.png
+---
+
+1. Install nmap
+
+```bash
+# Debian/Ubuntu
+sudo apt-get install nmap
+
+# Arch
+sudo pacman -S nmap
+
+# RHEL/CentOS/Fedora
+sudo dnf install nmap
+```
+
+2. Scan for open port
+
+```bash
+nmap -p <port> -sC <ip>
+```

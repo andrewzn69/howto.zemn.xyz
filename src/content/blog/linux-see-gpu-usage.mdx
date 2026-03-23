@@ -1,0 +1,35 @@
+---
+description: ""
+public: true
+title: How to see GPU usage on Linux
+createdAt: 12/15/2023
+updatedAt: 12/15/2023
+tags:
+- linux
+- cli
+slug: linux-see-gpu-usage
+icon: SiLinux
+heroImage: /hero/hero-light.png
+---
+1. Install `nvtop`
+
+```bash
+# Debian/Ubuntu
+sudo apt install nvtop
+
+# Arch
+sudo pacman -S nvtop
+
+# RHEL/CentOS/Fedora
+sudo dnf install nvtop
+```
+
+2. Run `nvtop`
+
+```bash
+nvtop
+```
+
+:::note
+You can also use `radeontop` for AMD GPUs but it's not as feature-rich as `nvtop`.
+:::
