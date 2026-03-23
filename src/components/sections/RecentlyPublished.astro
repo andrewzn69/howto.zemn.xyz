@@ -29,19 +29,19 @@ const postsWithMeta = await Promise.all(
 				const heroImageAsset = post.data.heroImage && images[post.data.heroImage];
 				const heroImageSrc = heroImageAsset ? heroImageAsset() : post.data.heroImage;
 				return (
-					<li class="border border-bg5 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full [transition:box-shadow_150ms,border-color_500ms]">
+					<li class="border border-bg2 rounded-lg overflow-hidden shadow-lg hover:shadow-xl flex flex-col h-full [transition:box-shadow_150ms,border-color_500ms]">
 						<a href={`/blog/${post.id}`} class="flex flex-col h-full">
 							{heroImageSrc && (
 								<div class="relative">
 									<Image
-										class="w-full h-[140px] object-cover border-b border-bg5 transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
+										class="w-full h-[140px] object-cover border-b border-bg2 transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
 										src={heroImageSrc.replace('-dark.png', '-light.png')}
 										width={720}
 										height={140}
 										alt="Banner"
 									/>
 									<Image
-										class="w-full h-[140px] object-cover border-b border-bg5 transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
+										class="w-full h-[140px] object-cover border-b border-bg2 transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
 										src={heroImageSrc.replace('-light.png', '-dark.png')}
 										width={720}
 										height={140}
@@ -68,7 +68,7 @@ const postsWithMeta = await Promise.all(
 									</p>
 								)}
 								<div class="mt-auto">
-									<hr class="border-bg5 mb-4" />
+									<hr class="border-bg2 mb-4" />
 									<div class="flex items-center text-sm text-fg-dim gap-3">
 										{post.data.createdAt && (
 											<div class="flex items-center gap-1">

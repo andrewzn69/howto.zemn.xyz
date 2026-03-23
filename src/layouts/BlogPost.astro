@@ -36,12 +36,12 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 						heroImage && (
 							<>
 								<img
-									class="w-full h-[280px] object-cover border border-bg5 rounded transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
+									class="w-full h-[280px] object-cover border border-bg2 rounded transition-[opacity,border-color] duration-[470ms] opacity-100 dark:opacity-0"
 									src={heroImage.replace('-dark.png', '-light.png')}
 									alt=""
 								/>
 								<img
-									class="w-full h-[280px] object-cover border border-bg5 rounded transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
+									class="w-full h-[280px] object-cover border border-bg2 rounded transition-[opacity,border-color] duration-[470ms] absolute top-0 left-0 opacity-0 dark:opacity-100"
 									src={heroImage.replace('-light.png', '-dark.png')}
 									alt=""
 								/>
@@ -59,7 +59,7 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 				<h1 class="text-3xl my-4 font-mplus">{title}</h1>
 
 				<div>{description}</div>
-				<hr class="border-top border-bg5 my-4" />
+				<hr class="border-top border-bg2 my-4" />
 				<slot />
 				<div class="mt-6">
 					{
