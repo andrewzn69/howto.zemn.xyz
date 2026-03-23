@@ -1,11 +1,11 @@
 ---
-import { IoChevronForward } from 'react-icons/io5';
+import { IoArrowForward } from 'react-icons/io5';
 import Head from '@/components/layout/Head.astro';
 import Body from '@/components/layout/Body.astro';
 import Container from '@/components/layout/Container.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/header/Header.astro';
-import Hero from '@/components/sections/Hero.astro';
+import Eye from '@/components/sections/Eye.tsx';
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/config';
 ---
 
@@ -17,7 +17,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '@/config';
 	<Body>
 		<Header />
 		<main class="pt-[56px] flex-1">
-			<Hero />
+			<Eye client:load />
 			<Container>
 				<section>
 					<h1 class="text-3xl text-center font-mplus mt-12 mb-8">
@@ -25,9 +25,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '@/config';
 					</h1>
 					<div class="text-center py-4">
 						<a
-							class="inline-flex items-center gap-1 underline underline-offset-2 decoration-main"
+							class="group inline-flex items-center gap-1 underline underline-offset-4"
 							href="/"
-							>Go to Index <IoChevronForward />
+							>Go to Index <IoArrowForward className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
 						</a>
 					</div>
 				</section>
