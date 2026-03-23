@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "astro dev --host",
 		"start": "astro dev",
-		"build": "astro check && astro build",
+		"build": "astro check && astro build && pagefind --site .vercel/output/static",
 		"preview": "astro preview",
 		"astro": "astro",
 		"live-import": "node --experimental-vm-modules tools/import.mjs"
@@ -43,6 +43,7 @@
 		"@biomejs/biome": "2.4.8",
 		"@tailwindcss/vite": "^4.2.2",
 		"@types/react": "^19.2.14",
+		"pagefind": "^1.4.0",
 		"tailwindcss": "^4.2.2"
 	}
 }

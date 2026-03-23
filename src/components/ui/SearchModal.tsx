@@ -1,12 +1,43 @@
 import { useState, useEffect } from 'react';
 import { IoSearch, IoClose } from 'react-icons/io5';
 
+declare global {
+	interface Window {
+		pagefind?: any;
+	}
+}
+
+interface PagefindResult {
+	id: string;
+	data: () => Promise<{
+		url: string;
+		content: string;
+		excerpt: string;
+		meta: {
+			title: string;
+			image?: string;
+		};
+		sub_results: Array<{
+			title: string;
+			url: string;
+			excerpt: string;
+		}>;
+	}>;
+}
+
 export default function SearchModal() {
 	const [isOpen, setIsOpen] = useState(false);
+	const [query, setQuery] = useState('');
+	const [results, setResults] = useState<any[]>([]);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if (e.key === 'Escape') setIsOpen(false);
+			if (e.key === 'Escape') {
+				setIsOpen(false);
+				setQuery('');
+				setResults([]);
+			}
 			if (e.key === '/' && !isOpen && !(e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement)) {
 				e.preventDefault();
 				setIsOpen(true);
@@ -14,7 +45,38 @@ export default function SearchModal() {
 		};
 		document.addEventListener('keydown', handleKeyDown);
 		return () => document.removeEventListener('keydown', handleKeyDown);
-	}, []);
+	}, [isOpen]);
+
+	useEffect(() => {
+		if (isOpen && !window.pagefind) {
+			const script = document.createElement('script');
+			script.src = '/pagefind/pagefind.js';
+			script.async = true;
+			document.body.appendChild(script);
+		}
+	}, [isOpen]);
+
+	const handleSearch = async (searchQuery: string) => {
+		setQuery(searchQuery);
+		if (!searchQuery.trim()) {
+			setResults([]);
+			return;
+		}
+		setLoading(true);
+		try {
+			if (window.pagefind) {
+				const search = await window.pagefind.search(searchQuery);
+				const data = await Promise.all(
+					search.results.map((result: PagefindResult) => result.data())
+				);
+				setResults(data);
+			}
+		} catch (error) {
+			console.error('Search error:', error);
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	return (
 		<>
@@ -33,10 +95,14 @@ export default function SearchModal() {
 			{isOpen && (
 				<div
 					className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-bg0/80 backdrop-blur-sm"
-					onClick={() => setIsOpen(false)}
+					onClick={() => {
+						setIsOpen(false);
+						setQuery('');
+						setResults([]);
+					}}
 				>
 					<div
-						className="w-full max-w-xl bg-bg1 rounded-lg border border-bg2 shadow-xl"
+						className="w-full max-w-2xl bg-bg1 rounded-lg border border-bg2 shadow-xl max-h-[600px] flex flex-col"
 						onClick={(e) => e.stopPropagation()}
 					>
 						<div className="flex items-center gap-3 px-4 py-3 border-b border-bg2">
@@ -44,15 +110,52 @@ export default function SearchModal() {
 							<input
 								autoFocus
 								type="text"
+								value={query}
+								onChange={(e) => handleSearch(e.target.value)}
 								placeholder="Search posts..."
 								className="flex-1 bg-transparent text-fg placeholder:text-fg-dim outline-none text-base"
 							/>
-							<button onClick={() => setIsOpen(false)}>
+							<button onClick={() => {
+								setIsOpen(false);
+								setQuery('');
+								setResults([]);
+							}}>
 								<IoClose className="w-4 h-4 text-fg-dim hover:text-fg duration-150" />
 							</button>
 						</div>
-						<div className="px-4 py-8 text-center text-base text-fg-dim">
-							Search coming soon.
+						<div className="overflow-y-auto flex-1">
+							{loading && (
+								<div className="px-4 py-8 text-center text-base text-fg-dim">
+									Searching...
+								</div>
+							)}
+							{!loading && query && results.length === 0 && (
+								<div className="px-4 py-8 text-center text-base text-fg-dim">
+									No results found.
+								</div>
+							)}
+							{!loading && results.length > 0 && (
+								<div className="divide-y divide-bg2">
+									{results.map((result, index) => (
+										<a
+											key={index}
+											href={result.url}
+											className="block px-4 py-4 hover:bg-bg2 transition-colors duration-150"
+											onClick={() => {
+												setIsOpen(false);
+												setQuery('');
+												setResults([]);
+											}}
+										>
+											<h3 className="font-medium text-fg mb-2">{result.meta.title}</h3>
+											<p
+												className="text-sm text-fg-dim [&_mark]:bg-green/20 [&_mark]:text-green [&_mark]:rounded [&_mark]:px-1"
+												dangerouslySetInnerHTML={{ __html: result.excerpt }}
+											/>
+										</a>
+									))}
+								</div>
+							)}
 						</div>
 					</div>
 				</div>
