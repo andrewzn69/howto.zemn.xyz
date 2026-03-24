@@ -157,9 +157,6 @@ export default function SearchModal() {
 														{result.meta.date}
 													</span>
 												)}
-												{result.meta.date && result.meta.minutesRead && (
-													<div className="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
-												)}
 												{result.meta.minutesRead && (
 													<span className="flex items-center gap-1">
 														<IoTime className="w-3 h-3" />
