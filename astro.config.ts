@@ -5,6 +5,7 @@ import vercel from '@astrojs/vercel';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import robotsTxt from 'astro-robots-txt';
+import pagefind from 'astro-pagefind';
 import expressiveCode, { ExpressiveCodeTheme } from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 import { remarkReadingTime } from './src/lib/remark-reading-time.mjs';
@@ -44,6 +45,7 @@ export default defineConfig({
 		react(),
 		mdx(),
 		robotsTxt({ policy: [{ userAgent: '*', disallow: ['/404'] }] }),
+		pagefind(),
 	],
 
 	markdown: {

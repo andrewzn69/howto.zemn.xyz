@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "astro dev --host",
 		"start": "astro dev",
-		"build": "astro check && astro build && pagefind --site .vercel/output/static",
+		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"live-import": "node --experimental-vm-modules tools/import.mjs"
@@ -24,6 +24,7 @@
 		"@vercel/analytics": "^2.0.1",
 		"astro": "^6.0.7",
 		"astro-expressive-code": "^0.41.7",
+		"astro-pagefind": "^1.8.5",
 		"astro-robots-txt": "^1.0.0",
 		"hastscript": "^9.0.1",
 		"lucide-react": "^0.577.0",
