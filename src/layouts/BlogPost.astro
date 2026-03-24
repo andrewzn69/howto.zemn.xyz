@@ -5,6 +5,7 @@ import Container from '@/components/layout/Container.astro';
 import Footer from '@/components/layout/Footer.astro';
 import FormattedDate from '@/components/ui/FormattedDate.astro';
 import Header from '@/components/layout/header/Header.astro';
+import Tag from '@/components/ui/Tag.astro';
 import { SITE_TITLE } from '@/config';
 
 export interface Props {
@@ -61,18 +62,12 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 				<div>{description}</div>
 				<hr class="border-top border-bg2 my-4" />
 				<slot />
-				<div class="mt-6">
-					{
-						tags.map((tag) => (
-							<a
-								href={`/blog/${tag}`}
-								class="inline-flex justify-center text-sm font-medium shadow-sm !text-fg-dim hover:!text-bg0 bg-bg1 hover:bg-fg focus:outline-none !no-underline rounded-md px-2 py-1 mt-2 mr-2"
-							>
-								<span class="tracking-wider">#</span>
-								<span>{tag}</span>
-							</a>
-						))
-					}
+			</Container>
+			<Container className="pt-6 font-mplus">
+				<div class="flex flex-wrap gap-2">
+					{tags.map((tag) => (
+						<Tag tag={tag} href={`/blog/${tag}`} />
+					))}
 				</div>
 			</Container>
 		</main>
