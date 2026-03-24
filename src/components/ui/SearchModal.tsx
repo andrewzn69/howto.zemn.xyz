@@ -51,7 +51,9 @@ export default function SearchModal() {
 		if (isOpen && !window.pagefind) {
 			const script = document.createElement('script');
 			script.src = '/pagefind/pagefind.js';
-			script.async = true;
+			script.onload = () => {
+				console.log('Pagefind loaded');
+			};
 			document.body.appendChild(script);
 		}
 	}, [isOpen]);
@@ -64,12 +66,21 @@ export default function SearchModal() {
 		}
 		setLoading(true);
 		try {
+			// wait for pagefind to load if not ready yet
+			let retries = 0;
+			while (!window.pagefind && retries < 50) {
+				await new Promise(resolve => setTimeout(resolve, 100));
+				retries++;
+			}
+
 			if (window.pagefind) {
 				const search = await window.pagefind.search(searchQuery);
 				const data = await Promise.all(
 					search.results.map((result: PagefindResult) => result.data())
 				);
 				setResults(data);
+			} else {
+				console.error('Pagefind not loaded');
 			}
 		} catch (error) {
 			console.error('Search error:', error);
