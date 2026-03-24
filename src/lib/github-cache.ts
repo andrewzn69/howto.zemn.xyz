@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { tmpdir } from 'node:os';
 
-const CACHE_DIR = '.cache';
+const CACHE_DIR = process.env.VERCEL ? path.join(tmpdir(), 'github-cache') : '.cache';
 const CACHE_FILE = path.join(CACHE_DIR, 'github-repos.json');
 const CACHE_TTL = 1000 * 60 * 60; // 1 hour
 
