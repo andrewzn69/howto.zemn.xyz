@@ -85,7 +85,7 @@ export default function SearchModal() {
 		<>
 			<button
 				onClick={() => setIsOpen(true)}
-				className="group w-full flex items-center gap-3 px-4 py-3 rounded-lg border border-bg2/50 bg-bg1 text-fg-dim hover:border-green [transition:border-color_150ms,background-color_500ms,color_500ms] cursor-text shadow-md"
+				className="group w-full flex items-center gap-3 px-4 py-3 rounded-md border border-bg2/50 bg-bg1 text-fg-dim hover:border-green [transition:border-color_150ms,background-color_500ms,color_500ms] cursor-text shadow-md"
 			>
 				<IoSearch className="w-4 h-4 shrink-0 text-fg-dim [transition:color_150ms] [&_*]:[transition:fill_150ms] group-hover:text-fg" />
 				<span className="text-base flex-1 text-left text-fg-dim [transition:color_150ms] group-hover:text-fg">Search posts...</span>
@@ -105,7 +105,7 @@ export default function SearchModal() {
 					}}
 				>
 					<div
-						className="w-full max-w-2xl bg-bg1 rounded-lg border border-bg2 shadow-xl max-h-[600px] flex flex-col"
+						className="w-full max-w-2xl bg-bg1 rounded-md border border-bg2 shadow-xl max-h-[600px] flex flex-col"
 						onClick={(e) => e.stopPropagation()}
 					>
 						<div className="flex items-center gap-3 px-4 py-3 border-b border-bg2">
