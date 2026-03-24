@@ -13,7 +13,9 @@ interface Props {
 const { name, description, topics, stars, forks, url } = Astro.props;
 ---
 
-<div class="border border-bg2 rounded p-6 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:border-green transition-all duration-200">
+<div class="group relative border border-bg2 rounded p-6 shadow-lg hover:shadow-xl hover:-translate-y-1" style="transition: translate 200ms, box-shadow 200ms, border-color 500ms;">
+	<span class="absolute inset-0 rounded border border-green opacity-0 group-hover:opacity-100 [transition:opacity_150ms] pointer-events-none" aria-hidden="true"></span>
+
 	<div class="flex flex-wrap gap-2 mb-3">
 		{topics.slice(0, 5).map((topic) => (
 			<span class="text-xs px-2 py-1 bg-bg1 text-green rounded">{topic}</span>
@@ -39,10 +41,10 @@ const { name, description, topics, stars, forks, url } = Astro.props;
 		<a
 			href={url}
 			target="_blank"
-			class="group flex items-center gap-1 text-sm text-fg-dim"
+			class="group/link flex items-center gap-1 text-sm text-fg-dim"
 		>
 			Source
-			<IoArrowForward className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-1" />
+			<IoArrowForward className="w-4 h-4 transition-transform duration-150 group-hover/link:translate-x-1" />
 		</a>
 	</div>
 </div>
