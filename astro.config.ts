@@ -20,7 +20,7 @@ const everforestDark = ExpressiveCodeTheme.fromJSONString(everforestDarkString);
 const everforestLight = ExpressiveCodeTheme.fromJSONString(everforestLightString);
 
 export default defineConfig({
-	site: 'https://howto.zemn.xyz/',
+	site: 'https://zemn.xyz/',
 	trailingSlash: 'never',
 
 	integrations: [
