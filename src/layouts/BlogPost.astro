@@ -51,9 +51,9 @@ const { post: { title, description, tags, createdAt, heroImage }, minutesRead } 
 				</div>
 
 				<div class="flex items-center text-sm text-fg-dim gap-3 mb-4">
-					{createdAt && <FormattedDate date={new Date(createdAt)} />}
+					{createdAt && <span data-pagefind-meta="date"><FormattedDate date={new Date(createdAt)} /></span>}
 					<div class="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
-					<span>{minutesRead}</span>
+					<span data-pagefind-meta="minutesRead">{minutesRead}</span>
 				</div>
 
 				<h1 class="text-3xl my-4 font-mplus" data-pagefind-meta="title">{title}</h1>

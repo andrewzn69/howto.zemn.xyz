@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { IoSearch, IoClose } from 'react-icons/io5';
+import { IoSearch, IoClose, IoCalendar, IoTime } from 'react-icons/io5';
 
 declare global {
 	interface Window {
@@ -16,6 +16,8 @@ interface PagefindResult {
 		meta: {
 			title: string;
 			image?: string;
+			date?: string;
+			minutesRead?: string;
 		};
 		sub_results: Array<{
 			title: string;
@@ -148,6 +150,23 @@ export default function SearchModal() {
 												setResults([]);
 											}}
 										>
+											<div className="flex items-center gap-3 text-xs text-fg-dim mb-2">
+												{result.meta.date && (
+													<span className="flex items-center gap-1">
+														<IoCalendar className="w-3 h-3" />
+														{result.meta.date}
+													</span>
+												)}
+												{result.meta.date && result.meta.minutesRead && (
+													<div className="w-0.5 h-0.5 rounded-full bg-fg-dim"></div>
+												)}
+												{result.meta.minutesRead && (
+													<span className="flex items-center gap-1">
+														<IoTime className="w-3 h-3" />
+														{result.meta.minutesRead}
+													</span>
+												)}
+											</div>
 											<h3 className="font-medium text-fg mb-2">{result.meta.title}</h3>
 											<p
 												className="text-sm text-fg-dim [&_mark]:bg-green/20 [&_mark]:text-green [&_mark]:rounded [&_mark]:px-1"
