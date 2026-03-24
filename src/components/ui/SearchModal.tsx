@@ -47,16 +47,6 @@ export default function SearchModal() {
 		return () => document.removeEventListener('keydown', handleKeyDown);
 	}, [isOpen]);
 
-	useEffect(() => {
-		if (isOpen && !window.pagefind) {
-			const script = document.createElement('script');
-			script.src = '/pagefind/pagefind.js';
-			script.onload = () => {
-				console.log('Pagefind loaded');
-			};
-			document.body.appendChild(script);
-		}
-	}, [isOpen]);
 
 	const handleSearch = async (searchQuery: string) => {
 		setQuery(searchQuery);

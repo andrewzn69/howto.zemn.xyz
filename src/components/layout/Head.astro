@@ -62,3 +62,5 @@ const { title, description, image = '/cover.jpg' } = Astro.props;
 		document.documentElement.classList.add("dark");
 	}
 </script>
+
+<script is:inline set:text="window.pagefind = await import('/pagefind/pagefind.js')" type="module"></script>
